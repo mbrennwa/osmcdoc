@@ -4,8 +4,12 @@
 \usepackage[superscript,biblabel]{cite}
 \usepackage[parfill]{parskip}
 % \usepackage{microtype} \hyphenpenalty=750
-\usepackage{graphicx}
-% \usepackage{epstopdf} \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\usepackage{gensymb}
+
+\usepackage[pdftex]{graphicx}
+\usepackage{epstopdf}
+% \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 \usepackage[utf8]{inputenc}
 \usepackage{booktabs}
 \usepackage[english]{babel}
@@ -93,7 +97,7 @@ The discussions on the diyAudio forum led to the following approach to implement
 
 \item High-quality drivers and parts should be chosed based on the technical specations required for the OSMC design. The look of the drivers has to be ``right'' for a HiFi system in a home environment (people may not want to build a speaker that looks unusual), but is second priority after the techincal specifications.
 
-\item The woofer will determine the compromise between box size, bass-extension and efficiency compromise. A 10" or 12" woofer will be required.
+\item The woofer will determine the compromise between box size, bass-extension, and efficiency. A 10" or 12" woofer will be required.
 
 \item The midrange driver needs to keep up with the SPL and impedance requirements. The Volt VM752 dome driver will work very well from \SI{400}{Hz} up to about \SI{3}{kHz}. While there may be other midrange drivers that could be used, the VM752 was chosen due to the general interest for this driver and because some of the OSMC designers had good experience using this driver.
 
@@ -103,10 +107,14 @@ The discussions on the diyAudio forum led to the following approach to implement
 
 \end{enumerate}
 
+
 \section{System Design}
 
+The design process is fully documented in the diyAudio thread. The most relevant data from measurements and simulations are available in the OSMC data repository\cite{osmc_datarepo}.
 
 \subsection{Choice and Description of Drivers}
+
+*** Describe drivers, and why they were chosen
 
 
 \subsection{Baffle and Enclosure}
@@ -122,14 +130,26 @@ The discussions on the diyAudio forum led to the following approach to implement
 
 \subsection{Driver Measurements}\seclabel{driver_measurements}
 
+*** Present data of raw drivers as used for input to Vituix CAD + LEAP
+
 *** Discuss driver data as measured in box
 
 *** driver impedance curves (woofer in box)
 
-*** anechoic response of drivers (outdoors on measurement tower for frequency extension down to 100 Hz (?)), on axis and off-axis
+*** anechoic response of drivers, on axis and off-axis (\figr{SPL_curves_raw})
 
 *** woofer nearfield response
 
+
+
+
+\begin{figure}[p]
+	\centering
+	\vspace{-10ex}
+	\includegraphics[width=0.7\textwidth]{SPL_curves_raw.eps}
+	\caption{Anechoic SPL response curves of the woofer (Faital 12PR320, top), midrange (Volt VM752, center) and tweeter (Scan Speak R2904/7000 with WG148 wave\-guide) in the Monkey Coffin prototype box, measured at \SI{2.83}{Vrms} and \SI{1}{m} distance from the drivers, on axis and at $\pm$15\degree, $\pm$30\degree, $\pm$45\degree, $\pm$60\degree, $\pm$75\degree and $\pm$90\degree horizontal angles (symmetric for the woofer, midrange and tweeter: red curves are ``inside'' the stereo triangle, blue is ``outside'').}
+	\figlabel{SPL_curves_raw}
+\end{figure}
 
 \subsection{Cross Over Filters}
 

@@ -1,0 +1,19 @@
+%! PostScript set of library objects for XCircuit
+%  Version: 3.9
+%  Library name is: (user)
+%  Author: Matthias Brennwald,,, <mbrennwa@risotto>
+%
+
+
+% XCircuitLib library objects
+/::loudspeaker_cone {
+begingate
+(-) {/Helvetica cf} 2 1045 0.000 1.000 -16 -32 label
+(+) {/Helvetica cf} 2 1045 0.000 1.000 -16 32 label
+0 1.000 -32 48 -32 -48 0 -48 0 48 4 polygon
+1 1.000 0 32 32 64 32 -64 0 -32 4 polygon
+endgate
+} def
+
+
+% EndLib
