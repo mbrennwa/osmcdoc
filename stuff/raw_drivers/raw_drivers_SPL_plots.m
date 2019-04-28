@@ -2,7 +2,7 @@ clear all
 close all
 width = 6; height = 12;
 
-ax = [300 20e3 50 110];
+ax = [100 20e3 50 110];
 
 ci = 'r-'; % color for "inside" angles
 co = 'b-'; % color for "outside" angles

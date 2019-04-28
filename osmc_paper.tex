@@ -75,13 +75,13 @@ The OSMC development was financially supported by diyAudio members LORDSANSUI, P
 \clearpage
 
 \section{Overview}
-The Open Source Monkey Coffin (OSMC) loudspeaker was developed by members of the diyAudio internet forum\cite{osmc_p1}. The motivation for developing this loudspeaker emerged from two diyAudio threads discussing the idea of ``open source'' loudspeakers\cite{osproj1_p1,osproj2_p1}. Once the types of loudspeakers that would appeal to many novice DIYers were identified, the design targets for the OSMC were defined as follows:
+The Open Source Monkey Coffin (OSMC) loudspeaker was developed by members of the diyAudio internet forum\cite{osmc_p1}. The motivation for developing this loudspeaker emerged from two diyAudio threads discussing the idea of ``open source'' loudspeaker designs\cite{osproj1_p1,osproj2_p1}. Once the types of loudspeakers that would appeal to many novice DIYers were identified, the design targets for the OSMC were defined as follows:
 
 \begin{itemize}
 \item The OSMC must be straight forward to make for DIY novices.
 \item The box format should follow the ``large monitor'' format, sometimes also referred to as ``monkey coffin'' (hence the name).
 \item The OSMC should be ``amplifier friendly''. It should work well with small amplifiers like the popular Amp-Camp-Amp, tube amps, etc.
-\item The inernal volume should not be larger than \SIrange{60}{80}{L}.
+\item The internal volume should not be larger than \SIrange{60}{80}{L}.
 \item The OSMC should be a three way loudspeaker.
 \item Keeping part costs low is not of paramount priority. If the right parts cost a lot of money and there are no cheaper equivalents, it's okay to use those parts in the design.
 \end{itemize}
@@ -103,7 +103,7 @@ The discussions on the diyAudio forum led to the following approach to implement
 
 \item The tweeter also needs to keep up with the SPL and impedance requirements. Classical dome or ring radiator tweeters seem to be favoured by the OSMC designers. Also, the use of a waveguide seems favourable in order to match the dispersion of the tweeter to the midrange, to reduce the effects of baffle diffraction, to increase the on-axis efficiency, and to reduce non-linear distortion of the tweeter.
 
-\item The cross over filters will be implemented as passive circuits using steep filters (3rd order acoustic or more) in order to achieve small overlaps between the drivers in the x-over frequency bands, which reduces acoustic interferences between the drivers.
+\item The cross over filters will be implemented as passive circuits using steep filters in order to achieve small overlaps between the drivers in the crossover frequency bands, which reduces acoustic interferences between the drivers.
 
 \end{enumerate}
 
@@ -125,33 +125,49 @@ The design process is fully documented in the diyAudio thread. The most relevant
 
 *** bass tuning: box volume and port dimensions
 
-*** port location (rear vs front, bottom vs centered in box, discuss pro/contra, can use any of the two options without modifying the x-over)
+*** port location (rear vs front, bottom vs centered in box, discuss pro/contra, can use any of the two options without modifying the crossover)
 
 
 \subsection{Driver Measurements}\seclabel{driver_measurements}
 
-*** Present data of raw drivers as used for input to Vituix CAD + LEAP
+*** Present data of raw drivers mounted in box as used for input to Vituix CAD + LEAP
 
-*** Discuss driver data as measured in box
+*** driver impedance curves:
+See \figr{impedance_curves_drivers}
+Use for crossover modelling.
+Discuss bass tuning.
 
-*** driver impedance curves (woofer in box)
+\begin{figure}[tbp]
+	\centering
+	% \vspace{-10ex}
+	\includegraphics[width=0.7\textwidth]{impedance_curves_drivers.eps}
+	\caption{Impedance curves of the drivers mounted in the OSMC box (magnitude and phase).}
+	\figlabel{impedance_curves_drivers}
+\end{figure}
 
-*** anechoic response of drivers, on axis and off-axis (\figr{SPL_curves_raw})
-
-*** woofer nearfield response
 
 
-
+% *** anechoic response of drivers, on axis and off-axis:
+The SPL response curves of the raw drivers mounted in the OSMC box\cite{osmc_p568,osmc_p576} are shown in \figr{SPL_curves_raw}. These curves were obtained from gated impulse-response measurements, which yielded the anechoic SPL response above \SI{300}{Hz}. Measurements were taken at horizontal angles from \SI{-90}{\degree} to \SI{+90}{\degree} at \SI{15}{\degree} steps. The low-frequency parts of each SPL curve were calculated from the Thielle-Small parameters of the drivers (using LEAP)\cite{osmc_p511} and a diffraction model of the Monkey Coffin baffle (using Vituix CAD)\cite{osmc_p555}. The anechoic part and the low-frequency part of each SPL curve were merged using a ``soft splice'' in the frequency range where both parts of the curve overlapped consistently\cite{osmc_p568}. Finally, the phase response (not shown in \figr{SPL_curves_raw}) was determined by calculating the minimum phase from each of the merged SPL curves.% These SPL and phase data will be used for acoustical modelling of the OSMC system.
 
 \begin{figure}[p]
 	\centering
 	\vspace{-10ex}
 	\includegraphics[width=0.7\textwidth]{SPL_curves_raw.eps}
-	\caption{Anechoic SPL response curves of the woofer (Faital 12PR320, top), midrange driver (Volt VM752, center) and tweeter (Scan Speak R2904/7000 with WG148 wave\-guide) mounted in the Monkey Coffin prototype box, measured at \SI{2.83}{Vrms} and \SI{1}{m} distance from the drivers, on axis and at $\pm$15\degree, $\pm$30\degree, $\pm$45\degree, $\pm$60\degree, $\pm$75\degree and $\pm$90\degree horizontal angles (symmetric for the woofer, midrange and tweeter: red curves are ``inside'' the stereo triangle, blue is ``outside'').}
+	\caption{SPL response curves of the woofer (Faital 12PR320, top), midrange driver (Volt VM752, center) and tweeter (Scan Speak R2904/7000 with WG148 wave\-guide) mounted in the Monkey Coffin prototype box, measured at \SI{2.83}{Vrms} and \SI{1}{m} distance from the drivers, on axis and at $\pm$15\degree, $\pm$30\degree, $\pm$45\degree, $\pm$60\degree, $\pm$75\degree and $\pm$90\degree horizontal angles (symmetric for the woofer, midrange and tweeter: red curves are ``inside'' the stereo triangle, blue is ``outside''). Above \SI{300}{Hz}, the curves show the anechoic response as obtained from gated impulse-response measurements. The anechoic curves were extrapolated to lower frequencies by splicing them with modelled low-frequency curves (see text).}
 	\figlabel{SPL_curves_raw}
 \end{figure}
 
-\subsection{Cross Over Filters}
+
+
+*** woofer nearfield response
+Discuss box tuning
+
+
+
+
+
+\subsection{Crossover Network}
 
 Different filter types were considered for the OSMC. It was generally agreed to use steep filter slopes in order to achieve small overlaps between the drivers in the cross-over frequency bands with the aim of minimising acoustic interferences between the drivers.
 
