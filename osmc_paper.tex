@@ -188,8 +188,9 @@ For testing purposes, both filter prototypes were implemented in a miniDSP digit
 
 \centering
 \caption{List of parts in \figr{OSMC_EL_xover_schem}.}
+\footnotesize
 \tablabel{tab:OSMC_EL_xover_parts}
-\begin{tabular}{ccp{0.7\textwidth}} 
+\begin{tabular}{ccp{0.68\textwidth}} 
 \toprule
 Part & Value & Description\\ 
 \midrule 
@@ -197,27 +198,46 @@ Part & Value & Description\\
 % \midrule
 
 % woofer parts
-\inductor{W1}	& \SI{6.8}{mH} / \SI{0.19}{\ohm}	& Laminated iron core (e.g., Mundorf BS180, Feron, I core, baked varnish)\\
+\inductor{W1}	& \SI{6.8}{mH} / \SI{0.19}{\ohm}	& Laminated iron core (e.g.~Mundorf BS180, Feron, I core, baked varnish)\\
 \inductor{W2}	& \SI{1.8}{mH} / \SI{0.09}{\ohm}	& Laminated iron core (e.g, Mundorf BS180, Feron, I core, baked varnish)\\
-\inductor{W3}	& \SI{0.1}{mH} / \SI{0.23}{\ohm}	& Air core (e.g., Mundorf BL71, baked varnish)\\
+\inductor{W3}	& \SI{0.1}{mH} / \SI{0.23}{\ohm}	& Air core (e.g.~Mundorf BL71, baked varnish)\\
 \inductor{W4}	& \SI{15}{mH}  / \SI{1.12}{\ohm}	& Iron core (e.g, Mundorf BH71, Ferrite, baked varnish)\\
-\capacitor{W1}	& \SI{118}{\micro F}			& parallel combination of \SI{100}{\micro F} bipolar electrolytic and \SI{18}{\micro F} MKP (e.g., Mundorf ECAP50-100 and MCAP250-18)\\
-\capacitor{W2}	& \SI{33}{\micro F}			& bipolar electrolytic (e.g., Mundorf ECAP70-33)\\
-\capacitor{W3}	& \SI{267}{\micro F}			& parallel combination of \SI{220}{\micro F} and \SI{47}{\micro F} bipolar electrolytics (e.g., Mundorf ECAP63-220 and ECAP50-47)\\
-\resistor{W1}	& \SI{6.8}{\ohm} / \SI{10}{W}		& MOX type (e.g., Mundorf MR10-6,80)\\
-\resistor{W2}	& \SI{5.6}{\ohm} / \SI{10}{W}		& MOX type (e.g., Mundorf MR10-5,60)\\
+\capacitor{W1}	& \SI{118}{\micro F}			& Parallel combination of \SI{100}{\micro F} bipolar electrolytic and \SI{18}{\micro F} MKP (e.g.~Mundorf ECAP50-100 and MCAP250-18)\\
+\capacitor{W2}	& \SI{33}{\micro F}			& Bipolar electrolytic (e.g.~Mundorf ECAP70-33)\\
+\capacitor{W3}	& \SI{267}{\micro F}			& Parallel combination of \SI{220}{\micro F} and \SI{47}{\micro F} bipolar electrolytics (e.g.~Mundorf ECAP63-220 and ECAP50-47)\\
+\resistor{W1}	& \SI{6.8}{\ohm} / \SI{10}{W}		& MOX type (e.g.~Mundorf MR10-6.80)\\
+\resistor{W2}	& \SI{5.6}{\ohm} / \SI{10}{W}		& MOX type (e.g.~Mundorf MR10-5.60)\\
 
 \midrule
 
 % midrange parts
-\inductor{M1}	& \SI{1.2}{mH} / \SI{0.39}{\ohm}	& Air core (e.g., Mundorf BL125, baked varnish)\\
-\inductor{M2}	& \SI{0.33}{mH} / \SI{0.15}{\ohm}	& Air core (e.g., Mundorf BL100, baked varnish)\\
-\inductor{M3}	& \SI{6.8}{mH} / \SI{0.46}{\ohm}	& Iron core (e.g., Mundorf BH100, Ferrite, baked varnish)\\
-\inductor{M4}	& \SI{0.12}{mH} / \SI{0.15}{\ohm}	& Air core (e.g., Mundorf BL100, baked varnish)\\
-\inductor{M5}	& \SI{2.7}{mH} / \SI{1.01}{\ohm}	& Iron core (e.g., Mundorf BP71, Ferrite, baked)\\
-...\\
+\inductor{M1}	& \SI{1.2}{mH} / \SI{0.39}{\ohm}	& Air core (e.g.~Mundorf BL125, baked varnish)\\
+\inductor{M2}	& \SI{0.33}{mH} / \SI{0.15}{\ohm}	& Air core (e.g.~Mundorf BL100, baked varnish)\\
+\inductor{M3}	& \SI{6.8}{mH} / \SI{0.46}{\ohm}	& Iron core (e.g.~Mundorf BH100, Ferrite, baked varnish)\\
+\inductor{M4}	& \SI{0.12}{mH} / \SI{0.15}{\ohm}	& Air core (e.g.~Mundorf BL100, baked varnish)\\
+\inductor{M5}	& \SI{2.7}{mH} / \SI{1.01}{\ohm}	& Iron core (e.g.~Mundorf BP71, Ferrite, baked)\\
+\capacitor{M1}	& \SI{33}{\micro F}			& MKP (e.g.~Mundorf MCAP250-33)\\
+\capacitor{M2}	& \SI{267}{\micro F}			& Parallel combination of \SI{220}{\micro F} bipolar electrolytic and \SI{47}{\micro F} MKP (e.g.~Mundorf ECAP63-220 and Mundorf MCAP250-47 (MKP)\\
+\capacitor{M3}	& \SI{6.8}{\micro F}			& MKP (e.g.~Mundorf MCAP250-6.80)\\
+\capacitor{M4}	& \SI{4.7}{\micro F}			& MKP (e.g.~Mundorf MCAP250-4.70)\\
+\capacitor{M5}	& \SI{68}{\micro F}			& Bipolar electrolytic (e.g.~Mundorf ECAP50-68)\\
+\resistor{M1}	& \SI{2.7}{\ohm} / \SI{10}{W}		& MOX or wire wound (non-inducitve) (e.g.~Mundorf MRES20-2.7)\\
+\resistor{M2}	& \SI{5.6}{\ohm} / \SI{10}{W}		& MOX or wire wound (non-inducitve) (e.g.~Mundorf MRES20-5.6)\\
+\resistor{M3}	& \SI{8.2}{\ohm} / \SI{10}{W}		& MOX or wire wound (e.g.~Mundorf MR10-8.2)\\
+\resistor{M4}	& \SI{8.2}{\ohm} / \SI{10}{W}		& MOX or wire wound (e.g.~Mundorf MR10-8.2)\\
+
 \midrule
-...\\
+
+% tweeter parts
+\inductor{T1}	& \SI{0.22}{mH} / \SI{0.38}{\ohm}	& Air core (e.g.~Mundorf BL71, baked varnish)\\
+\inductor{T2}	& \SI{0.47}{mH} / \SI{0.64}{\ohm}	& Air core (e.g.~Mundorf BL71, baked varnish)\\
+\capacitor{T1}	& \SI{4.7}{\micro F}			& MKP (e.g.~MCAP250-4.7)\\
+\capacitor{T2}	& \SI{15}{\micro F}			& MKP (e.g.~MCAP250-15)\\
+\capacitor{T3}	& \SI{100}{\micro F}			& Parallel combination of \SI{82}{\micro F} bipolar electrolytic and \SI{18}{\micro F} MKP (e.g.~Mundorf ECAP50-82 and MCAP250-18)\\
+\capacitor{T4}	& \SI{100}{\micro F}			& Bipolar electrolytic (e.g.~Mundorf ECAP50-100)\\
+\resistor{T1}	& \SI{3.9}{\ohm} / \SI{10}{W}		& MOX or wire wound (non-inducitve) (e.g.~Mundorf MRES20-3.9)\\
+\resistor{T2}	& \SI{1.0}{\ohm} / \SI{10}{W}		& MOX or wire wound (non-inducitve) (e.g.~Mundorf MRES20-1.0)\\
+\resistor{T3}	& \SI{4.7}{\ohm} / \SI{10}{W}		& MOX type (e.g.~Mundorf MR10-4.7)\\
 \bottomrule
 \end{tabular}
 \end{table}
