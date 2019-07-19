@@ -10,10 +10,10 @@ ct = 'r-';
 % plot on-axis SPL response %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-[SUM.f,SUM.spl,SUM.phase] = textread ( "data/VituixCAD_AxialFR.txt" , "%f %f %f" , "headerlines",1 );
-[W.f,W.spl,W.phase] 	  = textread ( "data/VituixCAD_AxialFR\ 12PR320.txt" , "%f %f %f" , "headerlines",1 );
-[M.f,M.spl,M.phase] 	  = textread ( "data/VituixCAD_AxialFR\ VM752.txt" , "%f %f %f" , "headerlines",1 );
-[T.f,T.spl,T.phase] 	  = textread ( "data/VituixCAD_AxialFR\ R2904+WG148.txt" , "%f %f %f" , "headerlines",1 );
+[SUM.f,SUM.spl,SUM.phase] = textread ( "vituix_20190303_EL34_data/VituixCAD_AxialFR.txt" , "%f %f %f" , "headerlines",1 );
+[W.f,W.spl,W.phase] 	  = textread ( "vituix_20190303_EL34_data/VituixCAD_AxialFR\ 12PR320.txt" , "%f %f %f" , "headerlines",1 );
+[M.f,M.spl,M.phase] 	  = textread ( "vituix_20190303_EL34_data/VituixCAD_AxialFR\ VM752.txt" , "%f %f %f" , "headerlines",1 );
+[T.f,T.spl,T.phase] 	  = textread ( "vituix_20190303_EL34_data/VituixCAD_AxialFR\ R2904+WG148.txt" , "%f %f %f" , "headerlines",1 );
 
 h = figure (1);
 semilogx ( W.f,W.spl,cw , M.f,M.spl,cm , T.f,T.spl,ct , SUM.f,SUM.spl,'k-' )
