@@ -1,0 +1,18 @@
+Readme outdoor measurements 2018-12-28
+
+These measurements are a follow-up to the 2018-12-27 tower measurements to figure out why the woofer response shows such large peaks and dips in the 400 Hz range
+
+Measurements done with microphone at 100cm and 50cm from baffle.
+
+- Are the peaks/dips due to a resonance in the beer crates used as part of the tower/stand for the box on 2018-12-27? --> replaced beer crates by chair/stool. Microphone on axis relative to woofer, about 245cm above floor.
+Result: peaks/dips are reduced a lot, but not removed.
+
+- Is the remaining effect a resonance between the box-bottom/chair-top and the pallette on which the chair stands?
+--> stuffed "inside" of chair with pillows. Result: no change
+--> removed chair (box directly on palette), box and microphone closer to floor (mic 200cm above floor). Result: no change
+Conclusion: there is no "chair resonance".
+
+- Is the effect related to the bass reflex tunnel?
+--> stuffed bass-reflex port with scarf. Result: peaks + dips are mostly gone!
+
+Conclusion: the peaks/dips around 400 Hz are resonances related to the bass-reflex port!
