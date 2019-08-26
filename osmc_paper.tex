@@ -145,7 +145,14 @@ Discuss box tuning
 
 \subsection{Baffle and Enclosure}
 
-\figr{OSMC_box_drawing} shows the OSMC enclousure. The dimensions of the baffle is largely deteremined by the space required for the drivers. The tweeter and midrange are horizontally offset relative to the center in order to spread effects of diffraction at baffle edgeds over wide frequency band as much as possible.
+\figr{osmc_enclosure} shows the OSMC enclousure. The dimensions of the baffle are largely deteremined by the space required for the drivers. The tweeter and midrange are horizontally offset relative to the center in order to spread effects of diffraction at baffle edges over wide frequency band as much as possible.
+
+\begin{figure}[tbp]
+	\centering
+	\includegraphics[width=\textwidth]{osmc_enclosure_20190823.pdf}
+	\caption{Drawing of the OSMC enclosure. Notes: (1) the horizontal driver offsets are mirrored in the left and right speakers; (2) the rear must be removable for installation of the Volt VM752 driver; (3) the front needs to be \SI{20}{mm} thick to fit the Volt VM752 flange; (4) the speaker terminal hole shown here fits a Neutrik NL8MPR-BAG 8-pole Speakon terminal (adjust as suitable)}
+	\figlabel{osmc_enclosure}
+\end{figure}
 
 The volume of the box and the dimensions of the bass-reflex port were determined by numerous simulations and measurements of the bass tuning. The goal was to obtain flat SPL response down to the cut-off frequency. In order to keep group delay low, the bass SPL curve was designed to roll off smoothly (\figr{OSMC_bass_tuning}).
 
@@ -163,7 +170,7 @@ The volume of the box and the dimensions of the bass-reflex port were determined
 
 The cross over filters are implemented as passive circuits using steep filters in order to achieve small overlaps between the drivers in the crossover frequency bands, which reduces acoustic interferences between the drivers. 
 
-Two different filter prototypes\cite{osmc_p685} were modelled with loudspeaker CAD tools using the measured electro-acoustic characteristics of the drivers mounted in the OSMC enclosure (\sectn{driver_measurements}). The first prototype uses elliptic filters, which are not very widely used in conventional loudspeaker designs. While the transfer functions of elliptic filters may exhibit some ripple near their cut-off range, they allow very steep slopes. The second prototype was designed with simpler and more conventional circuit topology using series inductors and parallel capacitors for the low-pass sections, and vice-versa for the the high-pass sections. Both prototypes were optimized for smooth and flat overall system SPL response, smooth dispersion and power response, and symmetric acoustic filter slopes near the cross-over points. The summed SPL curves in the filter simulations were virtually identical.
+Two different filter prototypes\cite{osmc_p685} were modelled with loudspeaker CAD tools using the measured electro-acoustical characteristics of the drivers mounted in the OSMC enclosure (\sectn{driver_measurements}). The first prototype uses elliptic filters, which are not very widely used in conventional loudspeaker designs. While the transfer functions of elliptic filters may exhibit some ripple near their cut-off range, they allow very steep slopes. The second prototype was designed with simpler and more conventional circuit topology using series inductors and parallel capacitors for the low-pass sections, and vice-versa for the the high-pass sections. Both prototypes were optimized for smooth and flat overall system SPL response, smooth dispersion and power response, and symmetric acoustic filter slopes near the cross-over points. The summed SPL curves in the filter simulations were virtually identical.
 
 Both filter prototypes were implemented for testing in the OSMC prototype using a miniDSP digital signal processor. Listening tests with these DSP filters showed that both filters tend to sound very similar, although the elliptic filters sounded slightly more refined.\cite{osmc_p708} The elliptic filters were therefore implemented as passive circuits and further optimized using acoustic measurements and listening tests. The schematic of the final cross-over filters is shown in \figr{OSMC_EL_xover_schem}, with the part specifications in \tabl{OSMC_EL_xover_parts}. The manufacturers / types given in \tabl{OSMC_EL_xover_parts} are just suggestions that may be useful for inexperienced builders; other types can be used as long as they conform to the specifications given.
 
