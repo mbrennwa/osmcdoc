@@ -90,9 +90,9 @@ The Open Source Monkey Coffin (OSMC) loudspeaker was developed by members of the
 
 \section{System Design}
 
-For ``amplifier friendliness'', the target for the loudpseaker efficiency was set to \SI{92}{dB-SPL} at \SI{1}{m} and \SI{2.83}{V} input voltage, with a bass extension to 45 Hz (\SI{-3}{dB}). The impedance curve must not exhibit any sharp peaks or dips, and the OSMC should qualify as an ``\SI{8}{$\Omega$} speaker''. It must be noted that, given the constraints of the box size, these targets could only be achieved if mechnical losses within the loudspeaker system were virtually zero, which is nearly impossible. While it is therefore not realistic to fully implement these design targets, these goals still provide useful guidelines for the design process.
+For ``amplifier friendliness'', the loudpseaker efficiency was targeted to \SI{92}{dB-SPL} at \SI{1}{m} and \SI{2.83}{V} input voltage, with a bass extension to 45 Hz (\SI{-3}{dB}). The impedance curve must not exhibit any sharp peaks or dips, and the OSMC should qualify as an ``\SI{8}{$\Omega$} speaker''. It must be noted that, given the constraints of the box size, these targets could only be achieved if mechnical losses within the loudspeaker system were virtually zero, which is nearly impossible in real-world loudspeakers. While it is therefore not realistic to fully implement these design targets, these targets still provide useful guidelines for the design process.\par
 
-The following is a brief summary of the design process, which is fully documented in the diyAudio thread.\cite{osmc_p1}The OSMC design was aided by the use of loudspeaker CAD tools (LEAP, Vituix CAD). Measurement data were acquired using an RTX6001 USB audio analyser, MATAA software, and Earthworks M23 and iSEMcon EMX-7150 microphones. Data from measurements and simulations are available in the OSMC data repository\cite{osmc_datarepo}.
+The following is a brief summary of the design process, which is fully documented in the diyAudio thread.\cite{osmc_p1}The OSMC design was aided by the use of loudspeaker CAD tools (LEAP, Vituix CAD, Tolvan Edge). Measurement data were acquired using an RTX6001 USB audio analyser, MATAA software, and Earthworks M23 and iSEMcon EMX-7150 microphones. Data from measurements and simulations are available in the OSMC data repository\cite{osmc_datarepo}.
 
 
 \subsection{Driver choices}\seclabel{drivers}
@@ -100,18 +100,13 @@ The following is a brief summary of the design process, which is fully documente
 High-quality drivers and parts should be chosen based on the technical specations required for the OSMC design. The look of the drivers has to be ``right'' for a HiFi system in a home environment (people may not want to build a speaker that looks unusual), but is second priority after the techincal specifications.
 
 The woofer will determine the compromise between box size, bass-extension, and efficiency. 
-The size of the woofer critically determines the efficiency of the loudspeaker, and a 12" woofer will just fit the targeted box size. After screening numerous woofers based on their manufacturer specification, two samples should allow high efficiency at the targeted \SI{-3}{dB} point of \SI{50}{Hz} (FaitalPro 12PR320 and the D.A.S. Audio 12P).\cite{osmc_p162}. Measurements of the Thielle-Small parameters showed that the mechanical losses of the D.A.S.\ driver are considerably higher than speciefied in the datasheet, whereas the parameter values observed with the FaitalPro driver were consistent with the datasheet. The FaitalPro driver also showed lower harmonic distortion than the D.A.S.\ driver\cite{osmc_p236}. The FaitalPro 12PR320 was therefore chosen as the woofer in the OSMC.
+The size of the woofer critically determines the efficiency of the loudspeaker, and a 12" woofer will just fit the targeted box size. After screening numerous woofers based on their manufacturer specification, two drivers were identified that should allow high efficiency at the targeted \SI{-3}{dB} point of \SI{45}{Hz} (FaitalPro 12PR320 and the D.A.S.~Audio 12P)\cite{osmc_p162}. Measurements of the Thielle-Small parameters showed that the mechanical losses of the D.A.S.~Audio driver are considerably higher than speciefied in the datasheet, whereas the parameter values observed with the FaitalPro driver were consistent with the datasheet. The FaitalPro driver also showed lower harmonic distortion than the D.A.S.~Audio driver\cite{osmc_p236}. The FaitalPro 12PR320 was therefore chosen as the woofer in the OSMC.
 
 The midrange driver needs to keep up with the SPL and impedance requirements. The Volt VM752 dome driver will work very well from \SI{400}{Hz} up to about \SI{3}{kHz}. While there may be other midrange drivers that could be used, the VM752 was chosen due to the general interest for this driver and because some of the OSMC designers had good experience using this driver.
 
 The tweeter also needs to keep up with the SPL and impedance requirements. Classical dome or ring radiator tweeters seem to be favoured by the OSMC designers. Also, the use of a waveguide seems favourable in order to match the dispersion of the tweeter to the midrange, to reduce the effects of baffle diffraction, to increase the on-axis efficiency, and to reduce non-linear distortion of the tweeter. Tweeters with high directivity tend to minimize acoustic interference with the waveguide throt, which helps to get a smooth high frequency response\cite{ringradiators_in_waveguides}. Therefore, the Scan~Speak R2904/7000 ring radiator was chosen. This tweeter also features high electrical impedance, high efficiency, and very low harmonic distortion. Most of the design work was done with a Visaton WG148 waveguide, which was modified to fit the R2904/7000.\cite{WG148mod} However, the final design uses a custom-made waveguide designed by augerpro specifically for this purpose\cite{augerproWGcircular}. The augerpro waveguide is acoustically almost identical to the WG148\cite{osmc_p881}, but is very easy to fit on the R2904/7000. It is available for purchase via group buy at diyAudio.\cite{augerpro_groupbuy}
 
-*** Present data of raw drivers mounted in box as in the final design
-
-*** driver impedance curves:
-See \figr{impedance_curves_drivers}
-Use for crossover modelling.
-Discuss bass tuning.
+\figr{impedance_curves_drivers} and \figr{SPL_curves_raw} show the impedance and the SPL response of the drivers mounted in the OSMC box. These data were used as the basis for electro-acoustical modelling of the crossover filters.
 
 \begin{figure}[tbp]
 	\centering
@@ -121,12 +116,7 @@ Discuss bass tuning.
 	\figlabel{impedance_curves_drivers}
 \end{figure}
 
-
-
-% *** anechoic response of drivers, on axis and off-axis:
-The SPL response curves of the raw drivers mounted in the OSMC box\cite{osmc_p568,osmc_p576} are shown in \figr{SPL_curves_raw}. These curves were obtained from gated impulse-response measurements, which yielded the anechoic SPL response above \SI{300}{Hz}. Measurements were taken at horizontal angles from \SI{-90}{\degree} to \SI{+90}{\degree} at \SI{15}{\degree} steps. The low-frequency parts of each SPL curve were calculated from the Thielle-Small parameters of the drivers (using LEAP) and a diffraction model of the Monkey Coffin baffle (using Vituix CAD).\cite{osmc_p555} The anechoic part and the low-frequency part of each SPL curve were merged using a ``soft splice'' in the frequency range where both parts of the curve overlapped consistently\cite{osmc_p568}. Finally, the phase response (not shown in \figr{SPL_curves_raw}) was determined by calculating the minimum phase from each of the merged SPL curves.
-
-\begin{figure}[p]
+\begin{figure}[tbp]
 	\centering
 	\vspace{-10ex}
 	\includegraphics[width=0.7\textwidth]{SPL_curves_raw.eps}
@@ -134,13 +124,7 @@ The SPL response curves of the raw drivers mounted in the OSMC box\cite{osmc_p56
 	\figlabel{SPL_curves_raw}
 \end{figure}
 
-
-
-*** woofer nearfield response
-Discuss box tuning
-
-
-
+The SPL response curves were obtained from gated impulse-response measurements, which yielded the anechoic SPL response above \SI{300}{Hz}. Measurements were taken at horizontal angles from \SI{-90}{\degree} to \SI{+90}{\degree} at \SI{15}{\degree} steps. The low-frequency parts of each SPL curve were calculated from the Thielle-Small parameters of the drivers (using LEAP) and a diffraction model of the Monkey Coffin baffle (using Vituix CAD).\cite{osmc_p555} The anechoic part and the low-frequency part of each SPL curve were merged using a ``soft splice'' in the frequency range where both parts of the curve overlapped consistently\cite{osmc_p568}. Finally, the phase response (not shown in \figr{SPL_curves_raw}) was determined by calculating the minimum phase from each of the merged SPL curves.
 
 
 \subsection{Baffle and Enclosure}
@@ -154,25 +138,26 @@ Discuss box tuning
 	\figlabel{osmc_enclosure}
 \end{figure}
 
-The volume of the box and the dimensions of the bass-reflex port were determined by numerous simulations and measurements of the bass tuning. The goal was to obtain flat SPL response down to the cut-off frequency. In order to keep group delay low, the bass SPL curve was designed to roll off smoothly (\figr{OSMC_bass_tuning}).
+
+The volume of the box and the dimensions of the bass-reflex port were determined using simulations and measurements of the bass tuning. The goal was to obtain flat SPL response down to the cut-off frequency. In order to keep group delay low, the bass SPL curve was designed to roll off smoothly \figr{OSMC_bass_tuning} shows the $2\pi$ free-field bass SPL response and the corresponding group delay. The SPL curve was determined using the mic-in-box technique for data up to \SI{110}{Hz}, which were spliced to a near-field measurement from \SI{90}{Hz} upwards. Note that this $2\pi$ SPL curve assumes an infinite baffle and therefore does not show the effects of baffle diffraction as it occurs at the transition from the $4\pi$ radiation at low freqencies to $2\pi$ at higher frequencies (see also \sectn{crossover_filters}).
 
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width=0.6\textwidth]{OSMC_bass_tuning.pdf}
-	\caption{Bass SPL and group delay ($2\pi$ free-field \SI{2.83}{Vrms}, \SI{1}{m}). The SPL curve was measured using the mic-in-box technique for data up to \SI{110}{Hz}, which were spliced to a near-field measurement from \SI{90}{Hz} upwards.}
+	\caption{Bass SPL and group delay ($2\pi$ free-field, \SI{2.83}{Vrms} drive voltage, at \SI{1}{m}; see text)}
 	\figlabel{OSMC_bass_tuning}
 \end{figure}
 
 
+\subsection{Crossover filters}\seclabel{crossover_filters}
 
+The cross over filters are implemented as passive circuits using steep filters in order to achieve small overlaps between the drivers in the crossover frequency bands, which reduces acoustic interferences between the drivers.
 
-\subsection{Crossover filters}
-
-The cross over filters are implemented as passive circuits using steep filters in order to achieve small overlaps between the drivers in the crossover frequency bands, which reduces acoustic interferences between the drivers. 
+The crossover filters also need to compensation for the baffle diffraction loss. The the modelled diffraction loss curves were subtracted from the $2\pi$ SPL response curves of the raw drivers (see \sectn{drivers}). These SPL curves were used to design the filters to achieve a balanced $4\pi$ SPL response.\par
 
 Two different filter prototypes\cite{osmc_p685} were modelled with loudspeaker CAD tools using the measured electro-acoustical characteristics of the drivers mounted in the OSMC enclosure (\sectn{driver_measurements}). The first prototype uses elliptic filters, which are not very widely used in conventional loudspeaker designs. While the transfer functions of elliptic filters may exhibit some ripple near their cut-off range, they allow very steep slopes. The second prototype was designed with simpler and more conventional circuit topology using series inductors and parallel capacitors for the low-pass sections, and vice-versa for the the high-pass sections. Both prototypes were optimized for smooth and flat overall system SPL response, smooth dispersion and power response, and symmetric acoustic filter slopes near the cross-over points. The summed SPL curves in the filter simulations were virtually identical.
 
-Both filter prototypes were implemented for testing in the OSMC prototype using a miniDSP digital signal processor. Listening tests with these DSP filters showed that both filters tend to sound very similar, although the elliptic filters sounded slightly more refined.\cite{osmc_p708} The elliptic filters were therefore implemented as passive circuits and further optimized using acoustic measurements and listening tests. The schematic of the final cross-over filters is shown in \figr{OSMC_EL_xover_schem}, with the part specifications in \tabl{OSMC_EL_xover_parts}. The manufacturers / types given in \tabl{OSMC_EL_xover_parts} are just suggestions that may be useful for inexperienced builders; other types can be used as long as they conform to the specifications given.
+Both filter prototypes were implemented for testing in the OSMC prototype using a miniDSP digital signal processor. Listening tests with these DSP filters showed that both filters tend to sound very similar, although the elliptic filters sounded slightly more refined.\cite{osmc_p708} The elliptic filters were therefore implemented as passive circuits and further optimized using acoustic measurements and listening tests. The schematic of the final cross-over filters is shown in \figr{OSMC_EL_xover_schem}, with the part specifications in \tabl{OSMC_EL_xover_parts}. Note that the manufacturers / types given the table are just suggestions that may be useful for inexperienced builders; other types can be used as long as they conform to the specifications given.
 
 \begin{figure}[p]
 	\centering
@@ -186,7 +171,7 @@ Both filter prototypes were implemented for testing in the OSMC prototype using 
 \centering
 \caption{List of parts in \figr{OSMC_EL_xover_schem} (version 2019-08-23).}
 \footnotesize
-\tablabel{tab:OSMC_EL_xover_parts}
+\tablabel{OSMC_EL_xover_parts}
 \begin{tabular}{ccp{0.68\textwidth}} 
 \toprule
 Part & Value & Description\\ 
@@ -263,20 +248,18 @@ Part & Value & Description\\
 
 \subsection{System tests and performance}
 
-*** Test equipment used: RTX001 USB audio analyser, MATAA software, Earthworks M23 microphone
-
 Electronic performance:
 *** Impedance curve
 *** Filter gain curves (electronic)
 
 Acoustic performance:
 *** step response (at 1m / farfield)
-*** farfield anechoic SPL curves of full system and individual drivers (padded with in-room woofer response)
+*** farfield anechoic SPL curves of full system and individual drivers (padded with woofer response measured with filters -- either at 4pi or at 2pi + baffle-step model curve). Also show SPL curve with midrange inverted polarity to indicate the x-over frequencies.
 *** cumulative decay spectrum
 *** polar plots (horizontal, vertical)
 
-Bass tuning:
-*** nearfield response of woofer (showing the BR dip and the sloping corresponding to the baffle-step compensation).
+% Bass tuning:
+% *** nearfield response of woofer (showing the BR dip and the sloping corresponding to the baffle-step compensation).
 
 General:
 *** How does the result compare to the build targets?
