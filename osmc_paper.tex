@@ -95,7 +95,7 @@ For ``amplifier friendliness'', the loudpseaker efficiency was targeted to \SI{9
 The following is a brief summary of the design process, which is fully documented in the diyAudio thread.\cite{osmc_p1}The OSMC design was aided by the use of loudspeaker CAD tools (LEAP, Vituix CAD, Tolvan Edge). Measurement data were acquired using an RTX6001 USB audio analyser, MATAA software, and Earthworks M23 and iSEMcon EMX-7150 microphones. Data from measurements and simulations are available in the OSMC data repository\cite{osmc_datarepo}.
 
 
-\subsection{Driver choices}\seclabel{drivers}
+\subsection{Drivers}\seclabel{drivers}
 
 High-quality drivers and parts should be chosen based on the technical specations required for the OSMC design. The look of the drivers has to be ``right'' for a HiFi system in a home environment (people may not want to build a speaker that looks unusual), but is second priority after the techincal specifications.
 
@@ -120,11 +120,11 @@ The tweeter also needs to keep up with the SPL and impedance requirements. Class
 	\centering
 	\vspace{-10ex}
 	\includegraphics[width=0.7\textwidth]{SPL_curves_raw.eps}
-	\caption{SPL response curves of the woofer (Faital 12PR320, top), midrange driver (Volt VM752, center) and tweeter (Scan Speak R2904/7000 with WG148 wave\-guide) mounted in the Monkey Coffin prototype box, measured at \SI{2.83}{Vrms} and \SI{1}{m} distance from the drivers, on axis and at $\pm$15\degree, $\pm$30\degree, $\pm$45\degree, $\pm$60\degree, $\pm$75\degree and $\pm$90\degree horizontal angles (symmetric for the woofer, midrange and tweeter: red curves are ``inside'' the stereo triangle, blue is ``outside''). Above \SI{300}{Hz}, the curves show the anechoic response as obtained from gated impulse-response measurements. The anechoic curves were extrapolated to lower frequencies by splicing them with modelled low-frequency curves (see text).}
+	\caption{SPL response curves of the woofer (Faital 12PR320, top), midrange driver (Volt VM752, center) and tweeter (Scan Speak R2904/7000 with WG148 wave\-guide) mounted in the Monkey Coffin prototype box, measured at \SI{2.83}{Vrms} and \SI{1}{m} distance from the drivers, on axis and at $\pm$15\degree, $\pm$30\degree, $\pm$45\degree, $\pm$60\degree, $\pm$75\degree\ and $\pm$90\degree\ horizontal angles (the red curves were measured on the side where the tweeter and midrange drivers are closer to the baffle edge, the blue curves are from the other side; the woofer data is symmetric). Above \SI{300}{Hz}, the curves show the anechoic response as obtained from gated impulse-response measurements. The anechoic curves were extrapolated to lower frequencies by splicing them with modelled low-frequency curves (see text).}
 	\figlabel{SPL_curves_raw}
 \end{figure}
 
-The SPL response curves were obtained from gated impulse-response measurements, which yielded the anechoic SPL response above \SI{300}{Hz}. Measurements were taken at horizontal angles from \SI{-90}{\degree} to \SI{+90}{\degree} at \SI{15}{\degree} steps. The low-frequency parts of each SPL curve were calculated from the Thielle-Small parameters of the drivers (using LEAP) and a diffraction model of the Monkey Coffin baffle (using Vituix CAD).\cite{osmc_p555} The anechoic part and the low-frequency part of each SPL curve were merged using a ``soft splice'' in the frequency range where both parts of the curve overlapped consistently\cite{osmc_p568}. Finally, the phase response (not shown in \figr{SPL_curves_raw}) was determined by calculating the minimum phase from each of the merged SPL curves.
+The SPL response curves were obtained from gated impulse-response measurements, which yielded the anechoic SPL response above \SI{300}{Hz}. Measurements were taken at horizontal angles from \SI{-90}{\degree} to \SI{+90}{\degree} at \SI{15}{\degree} steps. The low-frequency parts of each SPL curve were calculated from the Thielle-Small parameters of the drivers (using LEAP) and a diffraction model of the Monkey Coffin baffle (using Vituix CAD).\cite{osmc_p555} The anechoic part and the low-frequency part of each SPL curve were merged using a ``soft splice'' in the frequency range where both parts of the curve overlapped consistently\cite{osmc_p568}. Finally, the phase response (not shown in \figr{SPL_curves_raw}) was determined by calculating the minimum phase from each of the merged SPL curves. The drivers show smooth SPL response curves throughout their intended operating range. The on-axis on-axis response of the Volt VM752 midrange shows a dip at \SI{2.3}{kHz}. This dip disappears in the off-axis curves, which indicates that this is an uncritical diffraction artifact related to the driver/waveguide geometry rather than a problematic resonant effect.\par
 
 
 \subsection{Baffle and Enclosure}
@@ -153,11 +153,11 @@ The volume of the box and the dimensions of the bass-reflex port were determined
 
 The cross over filters are implemented as passive circuits using steep filters in order to achieve small overlaps between the drivers in the crossover frequency bands, which reduces acoustic interferences between the drivers.
 
-The crossover filters also need to compensation for the baffle diffraction loss. The the modelled diffraction loss curves were subtracted from the $2\pi$ SPL response curves of the raw drivers (see \sectn{drivers}). These SPL curves were used to design the filters to achieve a balanced $4\pi$ SPL response.\par
+Full compensation for the baffle diffraction loss was designed into the crossover filters. The modelled curves of the diffraction loss were subtracted from the $2\pi$ SPL response curves of the raw drivers (see \sectn{drivers}). These SPL curves were used to design the filters to achieve a balanced $4\pi$ SPL response.\par
 
-Two different filter prototypes\cite{osmc_p685} were modelled with loudspeaker CAD tools using the measured electro-acoustical characteristics of the drivers mounted in the OSMC enclosure (\sectn{driver_measurements}). The first prototype uses elliptic filters, which are not very widely used in conventional loudspeaker designs. While the transfer functions of elliptic filters may exhibit some ripple near their cut-off range, they allow very steep slopes. The second prototype was designed with simpler and more conventional circuit topology using series inductors and parallel capacitors for the low-pass sections, and vice-versa for the the high-pass sections. Both prototypes were optimized for smooth and flat overall system SPL response, smooth dispersion and power response, and symmetric acoustic filter slopes near the cross-over points. The summed SPL curves in the filter simulations were virtually identical.
+Two different filter types were considered during the prototyping process.\cite{osmc_p685} The first prototype uses elliptic filters, which are not very widely used in conventional loudspeaker designs. While the transfer functions of elliptic filters may exhibit some ripple near their cut-off range, they allow very steep slopes. The second prototype was designed with simpler and more conventional circuit topology using series inductors and parallel capacitors for the low-pass sections, and vice-versa for the the high-pass sections. Both prototypes were optimized for smooth and flat overall system SPL response, smooth dispersion and power response, and symmetric acoustic filter slopes near the cross-over points. The summed SPL curves in the filter simulations were virtually identical.
 
-Both filter prototypes were implemented for testing in the OSMC prototype using a miniDSP digital signal processor. Listening tests with these DSP filters showed that both filters tend to sound very similar, although the elliptic filters sounded slightly more refined.\cite{osmc_p708} The elliptic filters were therefore implemented as passive circuits and further optimized using acoustic measurements and listening tests. The schematic of the final cross-over filters is shown in \figr{OSMC_EL_xover_schem}, with the part specifications in \tabl{OSMC_EL_xover_parts}. Note that the manufacturers / types given the table are just suggestions that may be useful for inexperienced builders; other types can be used as long as they conform to the specifications given.
+Both filter prototypes were implemented for testing in the OSMC prototype using a miniDSP digital signal processor. Acoustic measurements and listening tests with these DSP filters showed that both filters result in similar results, although with the elliptic filters the sound was perceived to be slightly more refined.\cite{osmc_p708} The elliptic filters were therefore implemented as passive circuits and further optimized using acoustic measurements and listening tests. The schematic of the final cross-over filters is shown in \figr{OSMC_EL_xover_schem}, with the part specifications in \tabl{OSMC_EL_xover_parts}. Note that the manufacturers / types given the table are just suggestions that may be useful for inexperienced builders; other types can be used as long as they conform to the specifications given.
 
 \begin{figure}[p]
 	\centering
@@ -236,7 +236,7 @@ Part & Value & Description\\
 
 *** DAMPING
 
-*** Fitting the waveguides (augerpro, WG148 machining)
+*** Fitting the waveguides (augerpro)
 
 
 \subsection{Cross Over Filters}
