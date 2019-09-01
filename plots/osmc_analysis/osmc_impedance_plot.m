@@ -4,6 +4,8 @@ ff = logspace(log10(10),log10(20E3),500);
 osmc.ZZm = interp1 (osmc.f,osmc.Zmag,ff);
 osmc.ZZp = interp1 (osmc.f,osmc.Zphase,ff);
 
+graphics_toolkit ('gnuplot')
+
 h = figure(1);
 
 [ax,h1,h2] = plotyy ( ff,osmc.ZZm , ff,osmc.ZZp , @semilogx , @semilogx );
@@ -23,7 +25,7 @@ set(ax,'linewidth',3)
 xlabel ('Frequency (Hz)')
 ylabel (ax(1),'Impedance magnitude (Ohm)')
 ylabel (ax(2),'Impedance phase (deg.)')
-legend('Magnitude','Phase')
+%% hl = legend('Magnitude','Phase')
 
 
 W = 8; H = 5;
@@ -32,4 +34,4 @@ set(h,'PaperOrientation','portrait');
 set(h,'PaperSize',[W,H])
 set(h,'PaperPosition',[0,0,W,H])
 
-print ('osmc_impedance_response.eps','-depsc2')
+print ('osmc_impedance_curve.eps','-depsc2')
