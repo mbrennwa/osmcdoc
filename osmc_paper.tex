@@ -102,9 +102,9 @@ High-quality drivers and parts should be chosen based on the technical specation
 The woofer will determine the compromise between box size, bass-extension, and efficiency. 
 The size of the woofer critically determines the efficiency of the loudspeaker, and a 12" woofer will just fit the targeted box size. After screening numerous woofers based on their manufacturer specification, two drivers were identified that should allow high efficiency at the targeted \SI{-3}{dB} point of \SI{45}{Hz} (FaitalPro 12PR320 and the D.A.S.~Audio 12P)\cite{osmc_p162}. Measurements of the Thielle-Small parameters showed that the mechanical losses of the D.A.S.~Audio driver are considerably higher than speciefied in the datasheet, whereas the parameter values observed with the FaitalPro driver were consistent with the datasheet. The FaitalPro driver also showed lower harmonic distortion than the D.A.S.~Audio driver\cite{osmc_p236}. The FaitalPro 12PR320 was therefore chosen as the woofer in the OSMC.
 
-The midrange driver needs to keep up with the SPL and impedance requirements. The Volt VM752 dome driver will work very well from \SI{400}{Hz} up to about \SI{3}{kHz}. While there may be other midrange drivers that could be used, the VM752 was chosen due to the general interest for this driver and because some of the OSMC designers had good experience using this driver.
+The midrange driver needs to keep up with the requirements of the sound pressure level (SPL) and impedance. The Volt VM752 dome driver will work very well from \SI{400}{Hz} up to about \SI{3}{kHz}. While there may be other midrange drivers that could be used, the VM752 was chosen due to the general interest for this driver and because some of the OSMC designers had good experience using this driver.
 
-The tweeter also needs to keep up with the SPL and impedance requirements. Classical dome or ring radiator tweeters seem to be favoured by the OSMC designers. Also, the use of a waveguide seems favourable in order to match the dispersion of the tweeter to the midrange, to reduce the effects of baffle diffraction, to increase the on-axis efficiency, and to reduce non-linear distortion of the tweeter. Tweeters with high directivity tend to minimize acoustic interference with the waveguide throt, which helps to get a smooth high frequency response\cite{ringradiators_in_waveguides}. Therefore, the Scan~Speak R2904/7000 ring radiator was chosen. This tweeter also features high electrical impedance, high efficiency, and very low harmonic distortion. Most of the design work was done with a Visaton WG148 waveguide, which was modified to fit the R2904/7000.\cite{WG148mod} However, the final design uses a custom-made waveguide designed by augerpro specifically for this purpose\cite{augerproWGcircular}. The augerpro waveguide is acoustically almost identical to the WG148\cite{osmc_p881}, but is very easy to fit on the R2904/7000. It is available for purchase via group buy at diyAudio.\cite{augerpro_groupbuy}
+The tweeter also needs to keep up with the SPL and impedance requirements. Classical dome or ring radiator tweeters were preferred by the OSMC designers. Also, the use of a waveguide seems favourable in order to match the dispersion of the tweeter to the midrange, to reduce the effects of baffle diffraction, to increase the on-axis efficiency, and to reduce non-linear distortion of the tweeter. Tweeters with high directivity tend to minimize acoustic interference with the waveguide at wavelengths similar to the throat diameter, which helps to avoid large SPL wiggles at high frequencies\cite{ringradiators_in_waveguides}. Therefore, the Scan~Speak R2904/7000 ring radiator was chosen. The R2904/7000 also features high electrical impedance, high efficiency, and very low harmonic distortion. Most of the design work was done with a Visaton WG148 waveguide, which was modified to fit the R2904/7000.\cite{WG148mod} However, the final design uses a custom-made waveguide, which was designed specifically for use in the OSMC by diyAudio user augerpro\cite{augerproWGcircular}. The augerpro waveguide is acoustically almost identical to the WG148\cite{osmc_p881}, but is very easy to fit on the R2904/7000. It is available for purchase via group buy at diyAudio.\cite{augerpro_groupbuy}
 
 \figr{impedance_curves_drivers} and \figr{SPL_curves_raw} show the impedance and the SPL response of the drivers mounted in the OSMC box. These data were used as the basis for electro-acoustical modelling of the crossover filters.
 
@@ -134,7 +134,7 @@ The SPL response curves were obtained from gated impulse-response measurements, 
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[width=\textwidth]{osmc_enclosure_20190823.pdf}
-	\caption{Drawing of the OSMC enclosure. Notes: (1) the horizontal driver offsets are mirrored in the left and right speakers; (2) the rear must be removable for installation of the Volt VM752 driver; (3) the front needs to be \SI{20}{mm} thick to fit the Volt VM752 flange; (4) the speaker terminal hole shown here fits a Neutrik NL8MPR-BAG 8-pole Speakon terminal (adjust as suitable)}
+	\caption{Drawing of the OSMC enclosure. Notes: (1) the horizontal driver offsets are mirrored in the left and right speakers; (2) the rear must be removable for installation of the Volt VM752 driver; (3) the front needs to be \SI{20}{mm} thick to fit the Volt VM752 flange; (4) the speaker terminal hole shown here fits a Neutrik NL8MPR-BAG 8-pole Speakon terminal (adjust as suitable).}
 	\figlabel{osmc_enclosure}
 \end{figure}
 
@@ -144,7 +144,7 @@ The volume of the box and the dimensions of the bass-reflex port were determined
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width=0.6\textwidth]{OSMC_bass_tuning.pdf}
-	\caption{Bass SPL and group delay ($2\pi$ free-field, \SI{2.83}{Vrms} drive voltage, at \SI{1}{m}; see text)}
+	\caption{Bass SPL and group delay ($2\pi$ free-field, \SI{2.83}{Vrms} drive voltage, at \SI{1}{m}; see text).}
 	\figlabel{OSMC_bass_tuning}
 \end{figure}
 
@@ -162,7 +162,7 @@ Both filter prototypes were implemented for testing in the OSMC prototype using 
 \begin{figure}[p]
 	\centering
 	\includegraphics[width=\textwidth]{OSMC_EL_xover_schem.pdf}
-	\caption{OSMC cross-over filters (elliptic)}
+	\caption{OSMC cross-over filters (elliptic).}
 	\figlabel{OSMC_EL_xover_schem}
 \end{figure}
 
@@ -248,11 +248,27 @@ Part & Value & Description\\
 
 \subsection{System tests and performance}
 
-Electronic performance:
-*** Impedance curve
-*** Filter gain curves (electronic)
+\subsection{Electronic}
+\figr{osmc_impedance_curve} shows the OSMC impedance vs.\ frequency. The impedance reaches its minimum value of \SI{4.8}{Ohm} at \SI{33}{Hz}, and ranges from \SI{5.5}{Ohm} to \SI{12.8}{Ohm} above \SI{45}{Hz}. There are no sharp variations in the impedance curve, which is also expressed in the rather flat curve of the impedance phase. The OSMC is therefore an easy load for the amplifier, even if the targeted ``\SI{8}{Ohm}'' rating\cite{osmc_p904} is valid only above \SI{100}{Hz} in a strict sense.
 
-Acoustic performance:
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{osmc_impedance_curve.pdf}
+	\caption{Measured electrical impedance (magnitude in blue, phase in red).}
+	\figlabel{osmc_impedance_curve}
+\end{figure}
+
+\figr{osmc_filter_transfer} shows the OSMC filter transfer curves (***WORK: THIS IS THE 2019-03-03 FILTER VERSION. NEED TO REPLACE THIS WITH THE 2019-08-23 CURVES, WHERE THE KINK IN TWEETER CURVE IS SMOOTHER). The leakage in the stop bands of the elliptic filters is obvious for the midrange filter. However, the efficiency of the midrange driver in the respective frequency bands is very low \figr{SPL_curves_raw}, and the attenuation in the stop bands is \SI{-25}{dB} or better. The filter leakage is therefore considered irrelevant.
+
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{osmc_filter_transfer.pdf}
+	\caption{Measured transfer curves of the crossover filters for the woofer (blue), midrange (black), and tweeter (red).}
+	\figlabel{osmc_filter_transfer}
+\end{figure}
+
+
+\subsection{Acoustic}
 *** step response (at 1m / farfield)
 *** farfield anechoic SPL curves of full system and individual drivers (padded with woofer response measured with filters -- either at 4pi or at 2pi + baffle-step model curve). Also show SPL curve with midrange inverted polarity to indicate the x-over frequencies.
 *** cumulative decay spectrum
@@ -261,9 +277,10 @@ Acoustic performance:
 % Bass tuning:
 % *** nearfield response of woofer (showing the BR dip and the sloping corresponding to the baffle-step compensation).
 
-General:
-*** How does the result compare to the build targets?
-*** "How does it sound?"
+\subsection{Listening impressions}
+The OSMC was designed for accurate music playback in a home environment with ``amplifier friendliness'' in mind. Listening tests were therefore conducted with a \SI{11}{W} tube amplifier (triode push pull design) and a \SI{25}{W} solid state amplifier (FirstWatt F5 class-A). These amplifiers had no problems driving the OSMC to ``party levels'', which confirms the ``amplifier friendliness'' of the OSMC.\par
+
+The overall sound is balanced and coherent, with tight, articulate and well controlled bass. As an inevitable physical consequence of the ``amplifier friendliness'', however, the bass is not as deep as with some other similar sized ``HiFi'' loudspeakers that need to be driven by powerful amplifiers. The OSMC sounds highly transparent and dynamic, both at low and high playback levels. This lack of compression allows good resolution of low-level details even with complex or loud music. The waveguides result in a large proportion of direct sound at the listener position, resulting in precise rendering of the musical scene with little impact of the reverberant sound of the room.
 
 \clearpage
 
