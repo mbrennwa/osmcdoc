@@ -17,6 +17,8 @@
 \usepackage[colorlinks]{hyperref}
 \usepackage{caption} \captionsetup{labelfont={sf,bf}, size=footnotesize}
 
+\usepackage{eurosym}
+
 % set format of document title
 \usepackage{titling}
 \pretitle{\begin{center}\Large\bfseries} \posttitle{\end{center}\vspace{1em}}
@@ -227,6 +229,25 @@ Part & Value & Description\\
 
 
 \section{Construction}
+
+\subsection{Estimated costs}
+The costs for a complete speaker are dominated by the drivers and the x-over parts. The costs for the cabinet depend a lot on the materials used. The estimated costs involved per speaker is as follows (not including taxes and shipping):
+
+\begin{tabular}{ccp{0.68\textwidth}} 
+\toprule
+Part & Cost & Remarks\\ 
+\midrule 
+% woofer parts
+Woofer (FaitalPRO 12PR320)	&	\EUR{120}	\\
+Midrange (Volt VM752)		&	\EUR{500}	\\
+Tweeter (Scan Speak R2904/7000)	&	\EUR{250}	\\
+Tweeter waveguide (augerpro)	&	\EUR{85}	& diyAudio group buy \\
+x-over parts			&	\EUR{???}	& Parts as in \tabl{OSMC_EL_xover_parts} \\
+Cabinet				&	approx.~100	& Basic MDF or plywood cabinet, including damping materials \\
+Bits and pieces			&	approx.~50 	& Screws, connectors, etc. \\
+\bottomrule
+\end{tabular}
+
 
 \subsection{Baffle and Enclosure}
 
