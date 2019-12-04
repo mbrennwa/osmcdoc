@@ -102,7 +102,7 @@ The following is a brief summary of the design process, which is fully documente
 High-quality drivers and parts should be chosen based on the technical specations required for the OSMC design. The look of the drivers has to be ``right'' for a HiFi system in a home environment (people may not want to build a speaker that looks unusual), but is second priority after the techincal specifications.
 
 The woofer will determine the compromise between box size, bass-extension, and efficiency. 
-The size of the woofer critically determines the efficiency of the loudspeaker, and a 12" woofer will just fit the targeted box size. After screening numerous woofers based on their manufacturer specification, two drivers were identified that should allow high efficiency at the targeted \SI{-3}{dB} point of \SI{45}{Hz} (FaitalPro 12PR320 and the D.A.S.~Audio 12P)\cite{osmc_p162}. Measurements of the Thielle-Small parameters showed that the mechanical losses of the D.A.S.~Audio driver are considerably higher than speciefied in the datasheet, whereas the parameter values observed with the FaitalPro driver were consistent with the datasheet. The FaitalPro driver also showed lower harmonic distortion than the D.A.S.~Audio driver\cite{osmc_p236}. The FaitalPro 12PR320 was therefore chosen as the woofer in the OSMC.
+The size of the woofer critically determines the efficiency of the loudspeaker, and a 12" woofer will just fit the targeted box size. After screening numerous woofers based on their specifications, Thielle-Small parameters, and tests of harmonic distortion the FaitalPro 12PR320 woofer was selected.\cite{osmc_p162,osmc_p236}
 
 The midrange driver needs to keep up with the requirements of the sound pressure level (SPL) and impedance. The Volt VM752 dome driver will work very well from \SI{400}{Hz} up to about \SI{3}{kHz}. While there may be other midrange drivers that could be used, the VM752 was chosen due to the general interest for this driver and because some of the OSMC designers had good experience using this driver.
 
@@ -129,9 +129,9 @@ The tweeter also needs to keep up with the SPL and impedance requirements. Class
 The SPL response curves were obtained from gated impulse-response measurements, which yielded the anechoic SPL response above \SI{300}{Hz}. Measurements were taken at horizontal angles from \SI{-90}{\degree} to \SI{+90}{\degree} at \SI{15}{\degree} steps. The low-frequency parts of each SPL curve were calculated from the Thielle-Small parameters of the drivers (using LEAP) and a diffraction model of the Monkey Coffin baffle (using Vituix CAD).\cite{osmc_p555} The anechoic part and the low-frequency part of each SPL curve were merged using a ``soft splice'' in the frequency range where both parts of the curve overlapped consistently\cite{osmc_p568}. Finally, the phase response (not shown in \figr{SPL_curves_raw}) was determined by calculating the minimum phase from each of the merged SPL curves. The drivers show smooth SPL response curves throughout their intended operating range. The on-axis on-axis response of the Volt VM752 midrange shows a dip at \SI{2.3}{kHz}. This dip disappears in the off-axis curves, which indicates that this is an uncritical diffraction artifact related to the driver/waveguide geometry rather than a problematic resonant effect.\par
 
 
-\subsection{Baffle and Enclosure}
+\subsection{Baffle and Cabinet}
 
-\figr{osmc_enclosure} shows the OSMC enclousure. The dimensions of the baffle are largely deteremined by the space required for the drivers. The tweeter and midrange are horizontally offset relative to the center in order to spread effects of diffraction at baffle edges over wide frequency band as much as possible.
+\figr{osmc_enclosure} shows the OSMC cabinet. The dimensions of the baffle are largely deteremined by the space required for the drivers. The tweeter and midrange are horizontally offset relative to the center in order to spread effects of diffraction at baffle edges over wide frequency band as much as possible.
 
 \begin{figure}[tbp]
 	\centering
@@ -140,7 +140,7 @@ The SPL response curves were obtained from gated impulse-response measurements, 
 	\figlabel{osmc_enclosure}
 \end{figure}
 
-The volume of the box and the dimensions of the bass-reflex port were determined using simulations and measurements of the bass tuning. The goal was to obtain flat SPL response down to the cut-off frequency. In order to keep group delay low, the bass SPL curve was designed to roll off smoothly \figr{osmc_bass_tuning} shows the $2\pi$ free-field bass SPL response and the corresponding group delay. The SPL curve was determined using the mic-in-box technique for data up to \SI{110}{Hz}, which were spliced to a near-field measurement from \SI{90}{Hz} upwards. Note that this $2\pi$ SPL curve (solid line in \figr{osmc_bass_tuning} assumes an infinite baffle and therefore does not show the baffle step as it occurs at the transition from the $4\pi$ radiation at low freqencies to $2\pi$ at higher frequencies. To estimate the true $4\pi$ SPL response of the woofer the OSMC box (dashed line in \figr{osmc_bass_tuning}), the OSMC baffle step was modelled using the Tolvan Edge simulator.
+The cabinet volume and the dimensions of the bass-reflex port were determined using simulations and measurements of the bass tuning. The goal was to obtain flat SPL response down to the cut-off frequency. In order to keep group delay low, the bass SPL curve was designed to roll off smoothly \figr{osmc_bass_tuning} shows the $2\pi$ free-field bass SPL response and the corresponding group delay. The SPL curve was determined using the mic-in-box technique for data up to \SI{110}{Hz}, which were spliced to a near-field measurement from \SI{90}{Hz} upwards. Note that this $2\pi$ SPL curve (solid line in \figr{osmc_bass_tuning} assumes an infinite baffle and therefore does not show the baffle step as it occurs at the transition from the $4\pi$ radiation at low freqencies to $2\pi$ at higher frequencies. To estimate the true $4\pi$ SPL response of the woofer the OSMC box (dashed line in \figr{osmc_bass_tuning}), the OSMC baffle step was modelled using the Tolvan Edge simulator.
 
 \begin{figure}[tb]
 	\centering
@@ -158,7 +158,7 @@ Full compensation for the baffle diffraction loss was designed into the crossove
 
 Two different filter types were considered during the prototyping process.\cite{osmc_p685} The first prototype uses elliptic filters, which are not very widely used in conventional loudspeaker designs. While the transfer functions of elliptic filters may exhibit some ripple near their cut-off range, they allow very steep slopes. The second prototype was designed with simpler and more conventional circuit topology using series inductors and parallel capacitors for the low-pass sections, and vice-versa for the the high-pass sections. Both prototypes were optimized for smooth and flat overall system SPL response, smooth dispersion and power response, and symmetric acoustic filter slopes near the cross-over points. The summed SPL curves in the filter simulations were virtually identical.
 
-Both filter prototypes were implemented for testing in the OSMC prototype using a miniDSP digital signal processor. Acoustic measurements and listening tests with these DSP filters showed that both filters result in similar results, although with the elliptic filters the sound was perceived to be slightly more refined.\cite{osmc_p708} The elliptic filters were therefore implemented as passive circuits and further optimized using acoustic measurements and listening tests. The schematic of the final cross-over filters is shown in \figr{osmc_EL_xover_schem}, with the part specifications in \tabl{OSMC_EL_xover_parts}. Note that the manufacturers and type numbers of the parts suggested in the table correspond to the parts used in the prototype. These are high quality parts and work well, but they may be substituted with other parts with the same specifications.
+Both filter prototypes were implemented for testing in the OSMC prototype using a miniDSP digital signal processor. Acoustic measurements and listening tests with these DSP filters showed that both filters result in similar results, although with the elliptic filters the sound was perceived to be slightly more refined.\cite{osmc_p708} The elliptic filters were therefore implemented as passive circuits and further optimized using acoustic measurements and listening tests. The schematic of the final cross-over filters is shown in \figr{osmc_EL_xover_schem}, with the part specifications in \tabl{OSMC_EL_xover_parts}.
 
 \begin{figure}[p]
 	\centering
@@ -229,10 +229,10 @@ Part & Value & Description\\
 
 \section{Construction}
 
-\subsection{Estimated costs}
+\subsection{Estimated Costs}
 The costs for a complete speaker are dominated by the drivers and the x-over parts. The costs for the cabinet depend a lot on the materials used. The estimated cost per speaker is as follows (not including taxes and shipping):
 
-\begin{tabular}{lcl} 
+\begin{tabular}{lcp{0.3\textwidth}} 
 \toprule
 Part & Cost (\euro) & Remarks\\ 
 \midrule 
@@ -243,32 +243,38 @@ Tweeter waveguide (augerpro)	&	85	& diyAudio group buy\cite{augerpro_groupbuy} \
 X-over parts			&	300	& Parts as in \tabl{OSMC_EL_xover_parts} \\
 Cabinet				&	approx.~100	& Basic MDF or plywood cabinet \\
 Damping materials		&	approx.~50	& Basotect, sheeps wool \\
-Bits and pieces			&	approx.~50 	& Screws, wires, connectors, etc. \\
+Bits and pieces			&	approx.~50 	& Bass reflex port, screws, wires, connectors, etc. \\
 \midrule 
 Total				&	approx.~1500 \\
 \bottomrule
 \end{tabular}
 
 
-\subsection{Baffle and Enclosure}
+\subsection{Baffle and Cabinet}
+The OSMC cabinet is a simple rectangular box and is straightforward to build (\figr{osmc_enclosure} and \figr{osmc_photos}). The rear wall should be removable to facilitate the rear mounting of the midrange driver. Internal braces reduce vibrations of the cabinet walls. The inside surfaces of the cabinet are lined with Basotect absorbers (Ewos ME50SK Pyramid) and the top is stuffed with sheeps wool (\figr{osmc_photos}, right) to absorb the low-midrange sound radiated from the woofer into the cabinet.
 
-Post showing the enclosure with stuffing and bracing\cite{osmc_p930}.
+\begin{figure}[tbp]
+	\centering
+	\includegraphics[height=0.55\textheight]{osmc_front.jpg}
+	\hfill
+	\includegraphics[height=0.55\textheight]{osmc_cabinet_open.jpg}
+	\caption{OSMC front and back (with rear wall removed to show the bracing and damping).}
+	\figlabel{osmc_photos}
+\end{figure}
 
-*** BRACING
+The bass reflex port (type BR100HP) is cut to length and are then press-fit mounted in the rear wall. To ensure a tight seal between the rear baffle and the flange of the port, the flange may be wrapped with a few layers of tape. The recommended port length is approximately \SI{8}{cm} long, but slightly different port lengths (\SI{5}{cm} to \SI{12}{cm}) can be used to tweak the bass response. A longer port will cause a lower bass tuning with a softer roll off, whereas a shorter port will cause a higher bass tuning with a slight bass peak.
 
-*** DAMPING
-
-*** Fitting the waveguides (augerpro)
+\subsection{Fitting the Tweeter Waveguide}
+To mount the tweeter waveguide to the Scan Speak R2904 driver, the original faceplate needs to be removed from the tweeter by removing the three Torx screws. Note that the three empty screw holes that were used to fix the original faceplate to the tweeter would cause air leaks from the rear chamber, resulting in an undesired bass reflex tuning of the tweeter.\cite{scan_waveguide_bassreflex} The screw holes therefore need to be sealed with silicone or similar in order to maintain the desired tuning of the tweeter resonance.\cite{scan_waveguide_seal} The waveguide is fixed to the tweeter either using a clamp bolted to the rear of the waveguide, or using a thin layer of silicone glue or similar.
 
 
 \subsection{Cross Over Filters}
+\figr{osmc_xover_construction} shows the construction of the x-over filters according to \figr{osmc_EL_xover_schem}. The parts are fixed to a base and connected to each other using flying leads. Given the size and complexity of the x-over circuits, it make sense to build the filters for the tweeter, midrange and woofer as separate modules, and to mount these modules in a separate box instead of in the OSMC cabinet. In order to minimize magnetic comupling and crosstalk between the different inductors, the inductors should be arranged perpendicular to each other and separated from each other as much as possible.\cite{osmc_p833}
 
-*** how to (not) construct the filters
-
-*** possible modifications (better parts, other part values: use Vituix CAD to see effects)
+Note that the manufacturers and type numbers of the parts suggested in \tabl{OSMC_EL_xover_parts} correspond to the parts used in the OSMC prototype. These are high quality parts and work well, but they may be substituted with other parts with the same specifications.
 
 
-\begin{figure}[tb]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[height=0.25\textheight]{xover_modules.jpg}
 	\includegraphics[height=0.25\textheight]{xover_box.jpg}
@@ -282,7 +288,7 @@ Post showing the enclosure with stuffing and bracing\cite{osmc_p930}.
 \subsection{Electronic}
 \figr{osmc_impedance_curve} shows the OSMC impedance vs.\ frequency. The impedance reaches its minimum value of \SI{4.8}{Ohm} at \SI{33}{Hz}, and ranges from \SI{5.5}{Ohm} to \SI{12.8}{Ohm} above \SI{45}{Hz}. There are no sharp variations in the impedance curve, which is also expressed in the rather flat curve of the impedance phase. The OSMC is therefore an easy load for the amplifier, even if the targeted ``\SI{8}{Ohm}'' rating\cite{osmc_p904} is valid only above \SI{100}{Hz} in a strict sense.
 
-\begin{figure}[tb]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=0.7\textwidth]{osmc_impedance_curve.eps}
 	\caption{Measured electrical impedance (magnitude in blue, phase in red).}
@@ -291,7 +297,7 @@ Post showing the enclosure with stuffing and bracing\cite{osmc_p930}.
 
 \figr{osmc_filter_transfer} shows the OSMC filter transfer curves. The leakage in the stop bands of the elliptic filters is obvious for the midrange filter. However, the efficiency of the midrange driver in the respective frequency bands is very low \figr{SPL_curves_raw}, and the attenuation in the stop bands is \SI{-25}{dB} or better. The filter leakage is therefore considered irrelevant.
 
-\begin{figure}[tb]
+\begin{figure}[tpb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{osmc_filter_transfer.eps}
 	% note: this shows the 2019-03-03 version of the filter, where the kink in the tweeter transfer curve is a bit stronger than it should be.
