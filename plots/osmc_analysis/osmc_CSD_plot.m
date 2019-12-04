@@ -10,10 +10,12 @@ x = load ('data_onaxis/full_system.mat');
 
 % calculate and plot CSD data
 T = [0:1E-4:4E-3];
-[spl,f,d] = mataa_IR_to_CSD (h,t,T,1/24);
+[spl,f,d] = mataa_IR_to_CSD (h,t,T,1/12);
 
 k = find (f <= 20e3);
 mataa_plot_CSDt (spl(k),f(k),d(k),25);
-set(gca,'linewidth',3)
+% set(gca,'linewidth',3)
 
-width = 8; height = 4; set(gcf,'PaperUnits','inches','PaperOrientation','landscape','PaperSize',[width,height],'PaperPosition',[0,0,width,height]); print ('osmc_CSD_diagram.eps','-depsc2')
+title(''); % remove the MATAA title
+
+width = 15; height = 10; set(gcf,'PaperUnits','inches','PaperOrientation','landscape','PaperSize',[width,height],'PaperPosition',[0,0,width,height]); print ('osmc_CSD_diagram.eps','-depsc2')
