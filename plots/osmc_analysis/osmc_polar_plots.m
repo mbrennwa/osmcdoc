@@ -133,4 +133,4 @@ end
 set (h,'yticklabel',t);
 
 
-width = 8; height = 5; figure(1); set(gcf,'PaperUnits','inches','PaperOrientation','landscape','PaperSize',[width,height],'PaperPosition',[0,0,width,height]); print ('osmc_ploar_horizontal.eps','-depsc2'); figure(2); set(gcf,'PaperUnits','inches','PaperOrientation','landscape','PaperSize',[width,height],'PaperPosition',[0,0,width,height]); print ('osmc_polar_vertical.eps','-depsc2')
+width = 8; height = 5; figure(1); set(gcf,'PaperUnits','inches','PaperOrientation','landscape','PaperSize',[width,height],'PaperPosition',[0,0,width,height]); print ('osmc_polar_horizontal.eps','-depsc2'); figure(2); set(gcf,'PaperUnits','inches','PaperOrientation','landscape','PaperSize',[width,height],'PaperPosition',[0,0,width,height]); print ('osmc_polar_vertical.eps','-depsc2')

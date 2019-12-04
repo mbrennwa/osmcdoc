@@ -140,13 +140,12 @@ The SPL response curves were obtained from gated impulse-response measurements, 
 	\figlabel{osmc_enclosure}
 \end{figure}
 
-
-The volume of the box and the dimensions of the bass-reflex port were determined using simulations and measurements of the bass tuning. The goal was to obtain flat SPL response down to the cut-off frequency. In order to keep group delay low, the bass SPL curve was designed to roll off smoothly \figr{osmc_bass_tuning} shows the $2\pi$ free-field bass SPL response and the corresponding group delay. The SPL curve was determined using the mic-in-box technique for data up to \SI{110}{Hz}, which were spliced to a near-field measurement from \SI{90}{Hz} upwards. Note that this $2\pi$ SPL curve assumes an infinite baffle and therefore does not show the effects of baffle diffraction as it occurs at the transition from the $4\pi$ radiation at low freqencies to $2\pi$ at higher frequencies (see also \sectn{crossover_filters}).
+The volume of the box and the dimensions of the bass-reflex port were determined using simulations and measurements of the bass tuning. The goal was to obtain flat SPL response down to the cut-off frequency. In order to keep group delay low, the bass SPL curve was designed to roll off smoothly \figr{osmc_bass_tuning} shows the $2\pi$ free-field bass SPL response and the corresponding group delay. The SPL curve was determined using the mic-in-box technique for data up to \SI{110}{Hz}, which were spliced to a near-field measurement from \SI{90}{Hz} upwards. Note that this $2\pi$ SPL curve (solid line in \figr{osmc_bass_tuning} assumes an infinite baffle and therefore does not show the baffle step as it occurs at the transition from the $4\pi$ radiation at low freqencies to $2\pi$ at higher frequencies. To estimate the true $4\pi$ SPL response of the woofer the OSMC box (dashed line in \figr{osmc_bass_tuning}), the OSMC baffle step was modelled using the Tolvan Edge simulator.
 
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width=0.6\textwidth]{osmc_bass_tuning.eps}
-	\caption{Bass SPL and group delay ($2\pi$ free-field, \SI{2.83}{Vrms} drive voltage, at \SI{1}{m}; see text).}
+	\caption{Top: bass SPL response for \SI{2.83}{Vrms} drive voltage, at \SI{1}{m} (solid line: $2\pi$ response assuming infinite baffle, dashed line: $4\pi$ response taking into account the baffle-step loss). Bottom: group delay determined from $2\pi$ SPL response. See also text).}
 	\figlabel{osmc_bass_tuning}
 \end{figure}
 
@@ -303,11 +302,16 @@ Post showing the enclosure with stuffing and bracing\cite{osmc_p930}.
 \subsection{Acoustic}
 \figr{osmc_step_response} shows the free-field OSMC step response with the typical 3-way sequence of the tweeter peak followed by the peaks of the midrange and the woofer. The transitions between the peaks are smooth, and no resonances or other time-domain issues are apparent.
 
-\figr{osmc_SPL_response} shows the anechoic free-field ($4\pi$) on-axis SPL response. The part of the response curve $>\SI{330}{Hz}$ was determined from the anechoic part of the impulse response. The bass response was determined by converting the $2\pi$ free-field woofer response in \figr{osmc_bass_tuning} to the $4\pi$ system response by applying the baffle-step curve (modelled using Tolvan Edge) and the woofer x-over filter curve (\figr{osmc_filter_transfer}). The the bass \SI{-3}{dB} cut-off is at \SI{50}{Hz}, as targeted in the design goals. Up to \SI{1}{kHz}, the efficiency is \SI{90}{dB-SPL} (\SI{1}{m}, \SI{2.83}{V}). As expected, this is slightly less than the design goal, which is based the theoretically achievable optimum for system zero losses. The small dip at \SI{2.2}{kHz} is a baffle-diffraction effect.\par
+\figr{osmc_SPL_response} shows the anechoic free-field ($4\pi$) on-axis SPL response. The part of the response curve above $\SI{330}{Hz}$ was determined from the anechoic part of the impulse response. The bass response of the OSMC system was determined from the $4\pi$ far-field woofer response (\figr{osmc_bass_tuning}) and the woofer x-over filter curve (\figr{osmc_filter_transfer}). The the bass \SI{-3}{dB} cut-off is at \SI{50}{Hz}, as targeted in the design goals. The efficiency is \SI{90}{dB-SPL} (\SI{1}{m}, \SI{2.83}{V}) in the bass range. As expected, this is slightly less than the design goal, which is based the theoretically achievable optimum for system zero losses. Overall, the SPL response is very linear and shows a slight trend of decreasing SPL at higher frequencies. This decrease is required to compensate the progressive beaming of the waveguides in order to achive the desired slope of the power response curve, and hence a balanced sound character.\cite{osmc_p915} The small dip at \SI{2.2}{kHz} is a baffle-diffraction effect that is not apparent in the off-axis response.\par
+
+\figr{osmc_polar} shows the dispersion of the OSMC. Both the horizontal and vertical dispersion are well controlled are generally very smooth. Beaming increases smoothly towards higher frequencies. The vertical dispersion shows a cancellation at the x-over between the midrange driver and the tweeter. However, due to the steep x-over filters, this artifact is limited to a rather narrow frequency band.
+
+\figr{osmc_powerresponse} shows the OSMC power response, which is the sound power integrated on a sphere around the loudspeaker.\cite{mat_lspr,tylka} The power response reflects the sound power radiated into the listening environment. The slope of power response curve the dashed line is \SI{-1.9}{dB/octave} (dashed line in \figr{osmc_powerresponse}), which conforms with preferred slope determined in controlled listening tests carried out in typical home environments.\cite{osmc_p915}
+
+
 
 *** cumulative decay spectrum
 
-*** SHOW POLAR PLOTS. HORIZONTAL DISPERSION: PROGRESSIVE BEAMING TOWARDS HIGHER FREQUENCIES. THIS REQUIRES TREND OF SLIGHTLY DECREASING ON-AXIS SPL IN ORDER TO ACHIEVE LINEAR POWER RESPONSE (SHOW FIGURE) AND HENCE BALANCED SOUND.
 
 
 \begin{figure}[tb]
@@ -320,8 +324,23 @@ Post showing the enclosure with stuffing and bracing\cite{osmc_p930}.
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width=0.7\textwidth]{osmc_SPL_response.eps}
-	\caption{Free-field SPL response ($4\pi$), see text.}
+	\caption{SPL response at \SI{1}{m} (on axis, free field / $4\pi$, see text).}
 	\figlabel{osmc_SPL_response}
+\end{figure}
+
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.8\textwidth]{osmc_polar_horizontal.eps}\\
+	\includegraphics[width=0.8\textwidth]{osmc_polar_vertical.eps}
+	\caption{SPL dispersion (top: horizontal dispersion, bottom: vertical dispersion).}
+	\figlabel{osmc_polar}
+\end{figure}
+
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{osmc_powerresponse.eps}
+	\caption{Power response (see text).}
+	\figlabel{osmc_powerresponse}
 \end{figure}
 
 
