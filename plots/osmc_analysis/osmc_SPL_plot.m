@@ -71,7 +71,7 @@ bass.mag = bass.mag + interp1 (woofer_filter.f,woofer_filter.mag,bass.f);
 % merge bass and anechoic measurements:
 k = find (bass.f < 130);
 spl.f = [ bass.f(k)' anechoic.f ];
-spl.mag = [ bass.mag(k)' anechoic.mag+1.8 ];
+spl.mag = [ bass.mag(k)' anechoic.mag+0.8 ];
 
 % plot farfield response curves:
 figure(1)
