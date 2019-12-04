@@ -10,7 +10,9 @@ k = find (x.t > 0.00290 & x.t < 0.0024+0.01);
 
 [s,t] = mataa_IR_to_SR (x.h(k),x.t(k));
 
-plot (1000*(t-t(1)),s*1E6,'k-','linewidth',3);
+t = [-1 ; t ]; s = [0 ; s ];
+
+plot (1000*(t-t(2)),s*1E6,'k-','linewidth',3);
 axis ([-0.3 3.55 -1.3 2.2]);
 set (gca,'xtick',[0:1:10],'ytick',[-2:1:5])
 set(gca,'linewidth',3)

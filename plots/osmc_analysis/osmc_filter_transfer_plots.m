@@ -1,6 +1,6 @@
 % script to plot the OSMC filter transfer curves
 
-graphics_toolkit ('fltk'); % use gnuplot backend
+graphics_toolkit ('fltk'); % use fltk backend
 
 % load raw data (IR):
 woofer   = load ('data_filter_transfer_EL20190303/woofer_20190303.mat');

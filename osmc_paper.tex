@@ -301,13 +301,29 @@ Post showing the enclosure with stuffing and bracing\cite{osmc_p930}.
 
 
 \subsection{Acoustic}
-*** step response (at 1m / farfield)
-*** farfield anechoic SPL curves of full system and individual drivers (padded with woofer response measured with filters -- either at 4pi or at 2pi + baffle-step model curve). Also show SPL curve with midrange inverted polarity to indicate the x-over frequencies.
-*** cumulative decay spectrum
-*** polar plots (horizontal, vertical)
+\figr{osmc_step_response} shows the free-field OSMC step response. The step response shows the sequence of the tweeter peak followed by the peaks of of the midrange and the woofer, as expected for a typical 3-way loudspeaker. The transitions between the peaks are smooth.
 
-% Bass tuning:
-% *** nearfield response of woofer (showing the BR dip and the sloping corresponding to the baffle-step compensation).
+\figr{osmc_SPL_response} shows the anechoic free-field ($4\pi$) on-axis SPL response. The part of the response curve $>\SI{330}{Hz}$ was determined from the anechoic part of the impulse response. The bass response was determined by converting the $2\pi$ free-field woofer response in \figr{OSMC_bass_tuning} to the $4\pi$ system response by applying the baffle-step curve (modelled using Tolvan Edge) and the woofer x-over filter curve (\figr{osmc_filter_transfer}). The the bass \SI{-3}{dB} cut-off is at \SI{50}{Hz}, as targeted in the design goals. Up to \SI{1}{kHz}, the efficiency is \SI{90}{dB-SPL} (\SI{1}{m}, \SI{2.83}{V}). As expected, this is slightly less than the design goal, which is based the theoretically achievable optimum for system zero losses. The small dip at \SI{2.2}{kHz} is a baffle-diffraction effect.\par
+
+*** cumulative decay spectrum
+
+*** SHOW POLAR PLOTS. HORIZONTAL DISPERSION: PROGRESSIVE BEAMING TOWARDS HIGHER FREQUENCIES. THIS REQUIRES TREND OF SLIGHTLY DECREASING ON-AXIS SPL IN ORDER TO ACHIEVE LINEAR POWER RESPONSE (SHOW FIGURE) AND HENCE BALANCED SOUND.
+
+
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{osmc_step_response.pdf}
+	\caption{Step response at \SI{1}{m} (anechoic part).}
+	\figlabel{osmc_step_response}
+\end{figure}
+
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{osmc_SPL_response.pdf}
+	\caption{Free-field SPL response ($4\pi$), see text.}
+	\figlabel{osmc_SPL_response}
+\end{figure}
+
 
 \subsection{Listening impressions}
 The OSMC was designed for accurate music playback in a home environment with ``amplifier friendliness'' in mind. Listening tests were therefore conducted with a \SI{11}{W} tube amplifier (triode push pull design) and a \SI{25}{W} solid state amplifier (FirstWatt F5 class-A). These amplifiers had no problems driving the OSMC to ``party levels'', which confirms the ``amplifier friendliness'' of the OSMC.\par
