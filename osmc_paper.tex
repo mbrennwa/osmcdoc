@@ -113,7 +113,7 @@ The tweeter also needs to keep up with the SPL and impedance requirements. Class
 \begin{figure}[tbp]
 	\centering
 	% \vspace{-10ex}
-	% \includegraphics[width=0.7\textwidth]{impedance_curves_drivers.eps}
+	\includegraphics[width=0.7\textwidth]{impedance_curves_drivers}
 	\caption{Impedance curves of the drivers mounted in the OSMC box (magnitude and phase).}
 	\figlabel{impedance_curves_drivers}
 \end{figure}
@@ -121,7 +121,7 @@ The tweeter also needs to keep up with the SPL and impedance requirements. Class
 \begin{figure}[tbp]
 	\centering
 	\vspace{-10ex}
-	% \includegraphics[width=0.7\textwidth]{SPL_curves_raw.eps}
+	\includegraphics[width=0.7\textwidth]{SPL_curves_raw}
 	\caption{SPL response curves of the woofer (Faital 12PR320, top), midrange driver (Volt VM752, center) and tweeter (Scan Speak R2904/7000 with WG148 wave\-guide) mounted in the Monkey Coffin prototype box, measured at \SI{2.83}{Vrms} and \SI{1}{m} distance from the drivers, on axis and at $\pm$15\degree, $\pm$30\degree, $\pm$45\degree, $\pm$60\degree, $\pm$75\degree\ and $\pm$90\degree\ horizontal angles (the red curves were measured on the side where the tweeter and midrange drivers are closer to the baffle edge, the blue curves are from the other side; the woofer data is symmetric). Above \SI{300}{Hz}, the curves show the anechoic response as obtained from gated impulse-response measurements. The anechoic curves were extrapolated to lower frequencies by splicing them with modelled low-frequency curves (see text).}
 	\figlabel{SPL_curves_raw}
 \end{figure}
@@ -141,13 +141,13 @@ The SPL response curves were obtained from gated impulse-response measurements, 
 \end{figure}
 
 
-The volume of the box and the dimensions of the bass-reflex port were determined using simulations and measurements of the bass tuning. The goal was to obtain flat SPL response down to the cut-off frequency. In order to keep group delay low, the bass SPL curve was designed to roll off smoothly \figr{OSMC_bass_tuning} shows the $2\pi$ free-field bass SPL response and the corresponding group delay. The SPL curve was determined using the mic-in-box technique for data up to \SI{110}{Hz}, which were spliced to a near-field measurement from \SI{90}{Hz} upwards. Note that this $2\pi$ SPL curve assumes an infinite baffle and therefore does not show the effects of baffle diffraction as it occurs at the transition from the $4\pi$ radiation at low freqencies to $2\pi$ at higher frequencies (see also \sectn{crossover_filters}).
+The volume of the box and the dimensions of the bass-reflex port were determined using simulations and measurements of the bass tuning. The goal was to obtain flat SPL response down to the cut-off frequency. In order to keep group delay low, the bass SPL curve was designed to roll off smoothly \figr{osmc_bass_tuning} shows the $2\pi$ free-field bass SPL response and the corresponding group delay. The SPL curve was determined using the mic-in-box technique for data up to \SI{110}{Hz}, which were spliced to a near-field measurement from \SI{90}{Hz} upwards. Note that this $2\pi$ SPL curve assumes an infinite baffle and therefore does not show the effects of baffle diffraction as it occurs at the transition from the $4\pi$ radiation at low freqencies to $2\pi$ at higher frequencies (see also \sectn{crossover_filters}).
 
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=0.6\textwidth]{OSMC_bass_tuning}
+	\includegraphics[width=0.6\textwidth]{osmc_bass_tuning}
 	\caption{Bass SPL and group delay ($2\pi$ free-field, \SI{2.83}{Vrms} drive voltage, at \SI{1}{m}; see text).}
-	\figlabel{OSMC_bass_tuning}
+	\figlabel{osmc_bass_tuning}
 \end{figure}
 
 
@@ -159,19 +159,19 @@ Full compensation for the baffle diffraction loss was designed into the crossove
 
 Two different filter types were considered during the prototyping process.\cite{osmc_p685} The first prototype uses elliptic filters, which are not very widely used in conventional loudspeaker designs. While the transfer functions of elliptic filters may exhibit some ripple near their cut-off range, they allow very steep slopes. The second prototype was designed with simpler and more conventional circuit topology using series inductors and parallel capacitors for the low-pass sections, and vice-versa for the the high-pass sections. Both prototypes were optimized for smooth and flat overall system SPL response, smooth dispersion and power response, and symmetric acoustic filter slopes near the cross-over points. The summed SPL curves in the filter simulations were virtually identical.
 
-Both filter prototypes were implemented for testing in the OSMC prototype using a miniDSP digital signal processor. Acoustic measurements and listening tests with these DSP filters showed that both filters result in similar results, although with the elliptic filters the sound was perceived to be slightly more refined.\cite{osmc_p708} The elliptic filters were therefore implemented as passive circuits and further optimized using acoustic measurements and listening tests. The schematic of the final cross-over filters is shown in \figr{OSMC_EL_xover_schem}, with the part specifications in \tabl{OSMC_EL_xover_parts}. Note that the manufacturers and type numbers of the parts suggested in the table correspond to the parts used in the prototype. These are high quality parts and work well, but they may be substituted with other parts with the same specifications.
+Both filter prototypes were implemented for testing in the OSMC prototype using a miniDSP digital signal processor. Acoustic measurements and listening tests with these DSP filters showed that both filters result in similar results, although with the elliptic filters the sound was perceived to be slightly more refined.\cite{osmc_p708} The elliptic filters were therefore implemented as passive circuits and further optimized using acoustic measurements and listening tests. The schematic of the final cross-over filters is shown in \figr{osmc_EL_xover_schem}, with the part specifications in \tabl{OSMC_EL_xover_parts}. Note that the manufacturers and type numbers of the parts suggested in the table correspond to the parts used in the prototype. These are high quality parts and work well, but they may be substituted with other parts with the same specifications.
 
 \begin{figure}[p]
 	\centering
-	\includegraphics[width=\textwidth]{OSMC_EL_xover_schem.pdf}
+	\includegraphics[width=\textwidth]{osmc_EL_xover_schem.pdf}
 	\caption{OSMC cross-over filters (elliptic).}
-	\figlabel{OSMC_EL_xover_schem}
+	\figlabel{osmc_EL_xover_schem}
 \end{figure}
 
 \begin{table}[p]
 
 \centering
-\caption{List of parts in \figr{OSMC_EL_xover_schem} (version 2019-08-23).}
+\caption{List of parts in \figr{osmc_EL_xover_schem} (version 2019-08-23).}
 \footnotesize
 \tablabel{OSMC_EL_xover_parts}
 \begin{tabular}{ccp{0.68\textwidth}} 
@@ -285,7 +285,7 @@ Post showing the enclosure with stuffing and bracing\cite{osmc_p930}.
 
 \begin{figure}[tb]
 	\centering
-	% \includegraphics[width=0.7\textwidth]{osmc_impedance_curve.eps}
+	\includegraphics[width=0.7\textwidth]{osmc_impedance_curve}
 	\caption{Measured electrical impedance (magnitude in blue, phase in red).}
 	\figlabel{osmc_impedance_curve}
 \end{figure}
@@ -294,7 +294,7 @@ Post showing the enclosure with stuffing and bracing\cite{osmc_p930}.
 
 \begin{figure}[tb]
 	\centering
-	% \includegraphics[width=0.7\textwidth]{osmc_filter_transfer.eps}
+	\includegraphics[width=0.7\textwidth]{osmc_filter_transfer}
 	\caption{Measured transfer curves of the crossover filters for the woofer (blue), midrange (black), and tweeter (red).}
 	\figlabel{osmc_filter_transfer}
 \end{figure}
@@ -303,7 +303,7 @@ Post showing the enclosure with stuffing and bracing\cite{osmc_p930}.
 \subsection{Acoustic}
 \figr{osmc_step_response} shows the free-field OSMC step response. The step response shows the sequence of the tweeter peak followed by the peaks of of the midrange and the woofer, as expected for a typical 3-way loudspeaker. The transitions between the peaks are smooth.
 
-\figr{osmc_SPL_response} shows the anechoic free-field ($4\pi$) on-axis SPL response. The part of the response curve $>\SI{330}{Hz}$ was determined from the anechoic part of the impulse response. The bass response was determined by converting the $2\pi$ free-field woofer response in \figr{OSMC_bass_tuning} to the $4\pi$ system response by applying the baffle-step curve (modelled using Tolvan Edge) and the woofer x-over filter curve (\figr{osmc_filter_transfer}). The the bass \SI{-3}{dB} cut-off is at \SI{50}{Hz}, as targeted in the design goals. Up to \SI{1}{kHz}, the efficiency is \SI{90}{dB-SPL} (\SI{1}{m}, \SI{2.83}{V}). As expected, this is slightly less than the design goal, which is based the theoretically achievable optimum for system zero losses. The small dip at \SI{2.2}{kHz} is a baffle-diffraction effect.\par
+\figr{osmc_SPL_response} shows the anechoic free-field ($4\pi$) on-axis SPL response. The part of the response curve $>\SI{330}{Hz}$ was determined from the anechoic part of the impulse response. The bass response was determined by converting the $2\pi$ free-field woofer response in \figr{osmc_bass_tuning} to the $4\pi$ system response by applying the baffle-step curve (modelled using Tolvan Edge) and the woofer x-over filter curve (\figr{osmc_filter_transfer}). The the bass \SI{-3}{dB} cut-off is at \SI{50}{Hz}, as targeted in the design goals. Up to \SI{1}{kHz}, the efficiency is \SI{90}{dB-SPL} (\SI{1}{m}, \SI{2.83}{V}). As expected, this is slightly less than the design goal, which is based the theoretically achievable optimum for system zero losses. The small dip at \SI{2.2}{kHz} is a baffle-diffraction effect.\par
 
 *** cumulative decay spectrum
 
@@ -319,7 +319,7 @@ Post showing the enclosure with stuffing and bracing\cite{osmc_p930}.
 
 \begin{figure}[tb]
 	\centering
-	% \includegraphics[width=0.7\textwidth]{osmc_SPL_response.eps}
+	\includegraphics[width=0.7\textwidth]{osmc_SPL_response}
 	\caption{Free-field SPL response ($4\pi$), see text.}
 	\figlabel{osmc_SPL_response}
 \end{figure}
