@@ -62,10 +62,26 @@
 \author{Matthias Brennwald}
 \date{\today}
 
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\@maketitle}{\vskip 2em}{\vspace*{-2cm}}{}{}
+\makeatother
+
+
 \begin{document}
 
 
 \maketitle
+\vfill
+
+
+\begin{center}
+  \makebox[\textwidth]{\includegraphics[width=\paperwidth]{osmc_photo.jpg}}
+\end{center}
+
+\thispagestyle{empty}
+
+\clearpage
 
 \vspace{0.2\textheight}
 
