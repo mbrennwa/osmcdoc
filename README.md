@@ -3,6 +3,7 @@
 Documentation for the Open Source Monkey Coffin.
 
 ![Picture of the osmc](pictures/osmc_photo_small.jpg)
+
 _picture by mbrennwa, 6.12.2019_
 
 #  The Open Source Monkey Coffin Loudspeaker
