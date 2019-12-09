@@ -1,6 +1,6 @@
 # osmcdoc
 
-Documentation for the Open Source Monkey Coffin.
+Documentation for the Open Source Monkey Coffin Loudspeaker
 
 ![Picture of the osmc](pictures/osmc_photo_readme.jpg)
 
