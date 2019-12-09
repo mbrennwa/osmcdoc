@@ -10,11 +10,10 @@ _picture by mbrennwa, 6.12.2019_
 
 ## Notes and Disclaimers
 
-The Open Source Monkey Coffin (OSMC) loudspeaker was developed in an "open-source project" in the diyAudio forum.1 The aim of this documentation is to provide the OSMC design to DIYers for their own private purposes, for example to build a copy of the OSMC. Do not use the information developed in this project on a larger scale without written permission (for example by selling speakers based on the OSMC design or substantial parts of it).
+The Open Source Monkey Coffin (OSMC) loudspeaker was developed in an "open-source project" in the diyAudio forum. The aim of this documentation is to provide the OSMC design to DIYers for their own private purposes, for example to build a copy of the OSMC. Do not use the information developed in this project on a larger scale without written permission (for example by selling speakers based on the OSMC design or substantial parts of it).
 
 The OSMC development was financially supported by diyAudio members LORD-SANSUI, Paul Vancluysen, George Wright, KaffiMann, Charles Bueche, zimmer64, John Barbor, mbrennwa, and other anonymous members. Thank you!
 
-Matthias Brennwald, December 6, 2019
 
 ## Overview
 
