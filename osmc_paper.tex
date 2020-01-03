@@ -267,14 +267,14 @@ Total				&	approx.~1500 \\
 \subsection{Baffle and Cabinet}
 The OSMC cabinet is a simple rectangular box and is straightforward to build (\figr{osmc_enclosure} and \figr{osmc_photos}). The rear wall should be removable to facilitate the rear mounting of the midrange driver. Internal braces reduce vibrations of the cabinet walls.\par
 
-The inside surfaces of the cabinet are lined with melamine foam absorbers (Basotect, Ewos ME50SK Pyramid) and the top is stuffed with sheeps wool (\figr{osmc_photos}, right) to absorb the low-midrange sound radiated from the woofer into the cabinet. The recommended amount and arrangement of damping materials is shown in \figr{osmc_photos}, but experimenting with the damping materials allows tweaking the OSMC sound character in the low midrange and bass a bit. Make sure not to obstruct the space between the woofer and the bass-reflex port.
+Any standing waves (modes) that develop in the enclosure need to be attenuated by suitable damping materials inside the enclosure. The mode along the vertical axis of the enclosure has a wavelength of $2 \times \SI{0.638}{m} = \SI{1.28}{m}$, which corresponds to \SI{269}{Hz}. This mode is attenuated using melamine foam absorbers (Basotect, Ewos ME50SK Pyramid) at the bottom and the top, and some sheeps wool the top, as shown in \figr{osmc_photos}. Any potential modes along the horizontal axes (left/right, rear/front) would exhibit considerably shorter wavelengths that correspond to frequencies of $\SI{450}{Hz}$ and higher, which are above the pass band of the woofer. These odes are therefore hardly excited and therefore do not require special attention. Also, the sound radiated from the woofer into the enclosure is reflected at the read wall. Another Basotect layer covering lower half of the rear wall is used to reduce this unwanted reflection. The remaining internal surfaces of the enclosure are covered with a very thin layer of melamine foam only (use a large knive to remove the excess material as shown in \figr{osmc_photos}). There may also be other materials and arrangements of sound absorbers inside the enclosure that may lead to good results, and builders are encouraged to tweak the OSMC sound character in the low midrange and bass to their tastes. As a general rule, however, make sure not to obstruct the space between the woofer and the bass-reflex port.
 
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[height=0.55\textheight]{osmc_front.jpg}
 	\hfill
-	\includegraphics[height=0.55\textheight]{osmc_cabinet_open.jpg}
-	\caption{OSMC front and back (with rear wall removed to show the bracing and damping).}
+	\includegraphics[height=0.55\textheight]{osmc_cabinet_open_damping.pdf}
+	\caption{OSMC front and back with rear wall removed to show the bracing and damping. The red parts of the Basotect damping are removed using a large knive.}
 	\figlabel{osmc_photos}
 \end{figure}
 
