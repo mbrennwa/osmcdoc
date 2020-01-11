@@ -288,7 +288,7 @@ To mount the tweeter waveguide to the Scan Speak R2904 driver, the original face
 \subsection{Cross Over Filters}
 \figr{osmc_xover_construction} shows the construction of the x-over filters according to \figr{osmc_EL_xover_schem}. The parts are fixed to a base and connected to each other using flying leads. Given the size and complexity of the x-over circuits, it make sense to build the filters for the tweeter, midrange and woofer as separate modules, and to mount these modules in a separate box instead of in the OSMC cabinet. In order to minimize magnetic comupling and crosstalk between the different inductors, the inductors should be arranged perpendicular to each other and separated from each other as much as possible.\cite{osmc_p833}
 
-Note that the manufacturers and type numbers of the parts suggested in \tabl{OSMC_EL_xover_parts} correspond to the parts used in the OSMC prototype. These are high quality parts and work well, but they may be substituted with other parts with the same specifications. It must be noted, however, that expensive boutique parts do not always yield better sound. For instance, the ``high-end'' MKP capacitors shown in \figr{osmc_xover_construction} resulted in a slightly bloated and euphonic sound, and were later replaced by other MKP capacitors.
+Note that the manufacturers and type numbers of the parts suggested in \tabl{OSMC_EL_xover_parts} correspond to the parts used in the OSMC prototype. These are high quality parts and work well, but they may be substituted with other parts with the same specifications. It must be noted, however, that expensive boutique parts do not always yield better sound. For instance, the ``high-end'' MKP capacitors shown in \figr{osmc_xover_construction} resulted in bloated and euphonic sound, and were later replaced by other MKP capacitors.\cite{MKPtypes}
 
 \begin{figure}[tbp]
 	\centering
@@ -300,7 +300,7 @@ Note that the manufacturers and type numbers of the parts suggested in \tabl{OSM
 \end{figure}
 
 
-\subsection{System tests and performance}
+\section{System tests and performance}
 
 \subsection{Electronic}
 \figr{osmc_impedance_curve} shows the OSMC impedance vs.\ frequency. The impedance reaches its minimum value of \SI{4.8}{Ohm} at \SI{33}{Hz}, and ranges from \SI{5.5}{Ohm} to \SI{12.8}{Ohm} above \SI{45}{Hz}. There are no sharp variations in the impedance curve, which is also expressed in the rather flat curve of the impedance phase. The OSMC is therefore an easy load for the amplifier, even if the targeted ``\SI{8}{Ohm}'' rating\cite{osmc_p904} is valid only above \SI{100}{Hz} in a strict sense.
