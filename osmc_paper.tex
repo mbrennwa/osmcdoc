@@ -154,12 +154,12 @@ The SPL response curves were obtained from gated impulse-response measurements, 
 	\figlabel{osmc_enclosure}
 \end{figure}
 
-The cabinet volume and the dimensions of the bass-reflex port were determined using simulations and measurements of the bass tuning. The goal was to obtain flat SPL response down to the cut-off frequency. In order to keep group delay low, the bass SPL curve was designed to roll off smoothly \figr{osmc_bass_tuning} shows the $2\pi$ free-field bass SPL response and the corresponding group delay. The SPL curve was determined using the mic-in-box technique for data up to \SI{110}{Hz}, which were spliced to a near-field measurement from \SI{90}{Hz} upwards. Note that this $2\pi$ SPL curve (solid line in \figr{osmc_bass_tuning} assumes an infinite baffle and therefore does not show the baffle step as it occurs at the transition from the $4\pi$ radiation at low freqencies to $2\pi$ at higher frequencies. To estimate the true $4\pi$ SPL response of the woofer the OSMC box (dashed line in \figr{osmc_bass_tuning}), the OSMC baffle step was modelled using the Tolvan Edge simulator.
+The cabinet volume and the dimensions of the bass-reflex port were determined using simulations and measurements of the bass tuning. The goal was to obtain flat SPL response down to the cut-off frequency. In order to keep group delay low, the bass SPL curve was designed to roll off smoothly \figr{osmc_bass_tuning} shows the $2\pi$ free-field bass SPL response and the corresponding group delay. The SPL curve was determined using the mic-in-box technique\cite{Small_inbox} for data up to \SI{110}{Hz}, which were spliced to a near-field measurement from \SI{90}{Hz} upwards. Note that this $2\pi$ SPL curve (solid line in \figr{osmc_bass_tuning}) assumes an infinite baffle and therefore does not show the baffle step as it occurs at the transition from the $4\pi$ radiation at low freqencies to $2\pi$ at higher frequencies. To estimate the true $4\pi$ SPL response of the woofer the OSMC box (dashed line in \figr{osmc_bass_tuning}), the OSMC baffle step was modelled using the Tolvan Edge simulator.
 
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width=0.6\textwidth]{osmc_bass_tuning.eps}
-	\caption{Top: bass SPL response for \SI{2.83}{Vrms} drive voltage, at \SI{1}{m} (solid line: $2\pi$ response assuming infinite baffle, dashed line: $4\pi$ response taking into account the baffle-step loss). Bottom: group delay determined from $2\pi$ SPL response. See also text).}
+	\caption{Top: bass SPL response for \SI{2.83}{Vrms} drive voltage, at \SI{1}{m} (solid line: $2\pi$ response as measured using the microphone-in-box method\cite{Small_inbox}, dashed line: estimated $4\pi$ response taking into account the modelled baffle-step loss). Bottom: group delay determined from $2\pi$ SPL response. See also text).}
 	\figlabel{osmc_bass_tuning}
 \end{figure}
 
