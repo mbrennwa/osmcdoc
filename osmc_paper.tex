@@ -172,7 +172,7 @@ Full compensation for the baffle diffraction loss was designed into the crossove
 
 Two different filter types were considered during the prototyping process.\cite{osmc_p685} The first prototype uses elliptic filters, which are not very widely used in conventional loudspeaker designs. While the transfer functions of elliptic filters may exhibit some ripple near their cut-off range, they allow very steep slopes. The second prototype was designed with simpler and more conventional circuit topology using series inductors and parallel capacitors for the low-pass sections, and vice-versa for the the high-pass sections. Both prototypes were optimized for smooth and flat overall system SPL response, smooth dispersion and power response, and symmetric acoustic filter slopes near the cross-over points. The summed SPL curves in the filter simulations were virtually identical.
 
-Both filter prototypes were implemented for testing in the OSMC prototype using a miniDSP digital signal processor. Acoustic measurements and listening tests with these DSP filters showed that both filters result in similar results, although with the elliptic filters the sound was perceived to be slightly more refined.\cite{osmc_p708} The elliptic filters were therefore implemented as passive circuits and further optimized using acoustic measurements and listening tests. The schematic of the final cross-over filters is shown in \figr{osmc_EL_xover_schem}, with the part specifications in \tabl{OSMC_EL_xover_parts}.
+Both filter prototypes were implemented for testing in the OSMC prototype using a miniDSP digital signal processor. Acoustic measurement results with these DSP filters were similar for both filters, whereas the elliptic filters resulted in slightly more refined sound in listening tests\cite{osmc_p708}. The elliptic filters were therefore implemented as passive circuits and further optimized using acoustic measurements and listening tests. The schematic of the final cross-over filters is shown in \figr{osmc_EL_xover_schem}, with the part specifications in \tabl{OSMC_EL_xover_parts}.
 
 \begin{figure}[p]
 	\centering
@@ -279,7 +279,7 @@ Any standing waves (modes) that develop in the enclosure need to be attenuated b
 	\figlabel{osmc_photos}
 \end{figure}
 
-The bass reflex port (type BR100HP) is cut to length and are then press-fit mounted in the rear wall. To ensure a tight seal between the rear baffle and the flange of the port, the flange may be wrapped with a few layers of tape. The recommended port length is approximately \SIrange{8}{9}{cm} long\cite{osmc_p918}, but slightly different port lengths (\SI{7}{cm} to \SI{11}{cm}) can be used to tweak the bass response. A longer port will cause a lower bass tuning with a softer roll off, whereas a shorter port will cause a higher bass tuning with a slight bass peak.
+The bass reflex port (type Monacor BR-100HP / Jantzen HP 900028) is cut to length and are then press-fit mounted in the rear wall. To ensure a tight seal between the rear baffle and the flange of the port, the flange may be wrapped with a few layers of tape. The recommended port length is approximately \SIrange{8}{9}{cm} long\cite{osmc_p918}, but slightly different port lengths (\SI{7}{cm} to \SI{11}{cm}) can be used to tweak the bass response. A longer port will cause a lower bass tuning with a softer roll off, whereas a shorter port will cause a higher bass tuning with a slight bass peak.
 
 \subsection{Fitting the Tweeter Waveguide}
 To mount the tweeter waveguide to the Scan Speak R2904 driver, the original faceplate needs to be removed from the tweeter by removing the three Torx screws. Note that the three empty screw holes that were used to fix the original faceplate to the tweeter would cause air leaks from the rear chamber, resulting in an undesired bass reflex tuning of the tweeter.\cite{scan_waveguide_bassreflex} The screw holes therefore need to be sealed with silicone or similar in order to maintain the desired tuning of the tweeter resonance.\cite{scan_waveguide_seal} The waveguide is fixed to the tweeter either using a clamp bolted to the rear of the waveguide, or using a thin layer of silicone or similar glue.
@@ -312,7 +312,7 @@ Note that the manufacturers and type numbers of the parts suggested in \tabl{OSM
 	\figlabel{osmc_impedance_curve}
 \end{figure}
 
-\figr{osmc_filter_transfer} shows the OSMC filter transfer curves. The leakage in the stop bands of the elliptic filters is obvious for the midrange filter. However, the efficiency of the midrange driver in the respective frequency bands is very low \figr{SPL_curves_raw}, and the attenuation in the stop bands is \SI{-25}{dB} or better. The filter leakage is therefore considered irrelevant.
+\figr{osmc_filter_transfer} shows the OSMC filter transfer curves. The leakage in the stop bands of the elliptic filters is obvious for the midrange filter. However, the efficiency of the midrange driver in the respective frequency bands is very low (\figr{SPL_curves_raw}), and the attenuation in the stop bands is \SI{-25}{dB} or better. The filter leakage is therefore considered irrelevant.
 
 \begin{figure}[tpb]
 	\centering
