@@ -5,7 +5,6 @@
 \usepackage[parfill]{parskip}
 % \usepackage{microtype} \hyphenpenalty=750
 
-\usepackage{gensymb}
 
 \usepackage[pdftex]{graphicx}
 \usepackage{epstopdf}
@@ -13,11 +12,18 @@
 \usepackage[utf8]{inputenc}
 \usepackage{booktabs}
 \usepackage[english]{babel}
-\usepackage{siunitx} \sisetup{range-phrase=--,range-units=single}
+\usepackage{siunitx} 
+\sisetup{%
+    range-phrase=--,
+    range-units=single
+    }
+
+\usepackage{gensymb}
+\usepackage{eurosym}
+
 \usepackage[colorlinks]{hyperref}
 \usepackage{caption} \captionsetup{labelfont={sf,bf}, size=footnotesize}
 \usepackage{afterpage}
-\usepackage{eurosym}
 
 % set format of document title
 \usepackage{titling}
@@ -54,6 +60,8 @@
 \providecommand{\inductor}[1]{L\textsubscript{#1}}
 \providecommand{\capacitor}[1]{C\textsubscript{#1}}
 \providecommand{\resistor}[1]{R\textsubscript{#1}}
+
+\providecommand{\Ohm}{$\Omega$}
 
 % \interfootnotelinepenalty=10000
 
@@ -106,7 +114,7 @@ The Open Source Monkey Coffin (OSMC) loudspeaker was developed by members of the
 
 \section{System Design}
 
-For ``amplifier friendliness'', the loudpseaker efficiency was targeted to \SI{92}{dB-SPL} at \SI{1}{m} and \SI{2.83}{V} input voltage, with a bass extension to 45 Hz (\SI{-3}{dB}). The impedance curve must not exhibit any sharp peaks or dips, and the OSMC should qualify as an ``\SI{8}{$\Omega$} speaker''. It must be noted that, given the constraints of the box size, these targets could only be achieved if mechnical losses within the loudspeaker system were virtually zero, which is nearly impossible in real-world loudspeakers. While it is therefore not realistic to fully implement these design targets, these targets still provide useful guidelines for the design process.\par
+For ``amplifier friendliness'', the loudpseaker efficiency was targeted to \SI{92}{dB-SPL} at \SI{1}{m} and \SI{2.83}{V} input voltage, with a bass extension to 45 Hz (\SI{-3}{dB}). The impedance curve must not exhibit any sharp peaks or dips, and the OSMC should qualify as an ``\SI{8}{\Ohm} speaker''. It must be noted that, given the constraints of the box size, these targets could only be achieved if mechnical losses within the loudspeaker system were virtually zero, which is nearly impossible in real-world loudspeakers. While it is therefore not realistic to fully implement these design targets, these targets still provide useful guidelines for the design process.\par
 
 The following is a brief summary of the design process, which is fully documented in the diyAudio thread.\cite{osmc_p1}The OSMC design was supported by the use of loudspeaker CAD tools (LEAP, Vituix CAD, Tolvan Edge). Measurement data were acquired using an RTX6001 USB audio analyser, MATAA software, and Earthworks M23 and iSEMcon EMX-7150 microphones. Data from measurements and simulations are available in the OSMC data repository\cite{osmc_datarepo}.
 
@@ -166,7 +174,7 @@ The cabinet volume and the dimensions of the bass-reflex port were determined us
 
 \subsection{Crossover filters}\seclabel{crossover_filters}
 
-The cross over filters are implemented as passive circuits using steep filters in order to achieve small overlaps between the drivers in the crossover frequency bands, which reduces acoustic interferences between the drivers.
+The crossover filters are implemented as passive circuits using steep filters in order to achieve small overlaps between the drivers in the crossover frequency bands, which reduces acoustic interferences between the drivers.
 
 Full compensation for the baffle diffraction loss was designed into the crossover filters. The modelled curves of the diffraction loss were subtracted from the $2\pi$ SPL response curves of the raw drivers (see \sectn{drivers}). These SPL curves were used to design the filters to achieve a balanced $4\pi$ SPL response.\par
 
@@ -195,47 +203,47 @@ Part & Value & Description\\
 % \midrule
 
 % woofer parts
-\inductor{W1}	& \SI{6.8}{mH} / \SI{0.19}{\ohm}	& Laminated iron core (e.g.~Mundorf BS180, Feron, I core, baked varnish)\\
-\inductor{W2}	& \SI{1.8}{mH} / \SI{0.09}{\ohm}	& Laminated iron core (e.g, Mundorf BS180, Feron, I core, baked varnish)\\
-\inductor{W3}	& \SI{0.1}{mH} / \SI{0.23}{\ohm}	& Air core (e.g.~Mundorf BL71, baked varnish)\\
-\inductor{W4}	& \SI{15}{mH}  / \SI{1.12}{\ohm}	& Iron core (e.g, Mundorf BH71, Ferrite, baked varnish)\\
+\inductor{W1}	& \SI{6.8}{mH} / \SI{0.19}{\Ohm}	& Laminated iron core (e.g.~Mundorf BS180, Feron, I core, baked varnish)\\
+\inductor{W2}	& \SI{1.8}{mH} / \SI{0.09}{\Ohm}	& Laminated iron core (e.g, Mundorf BS180, Feron, I core, baked varnish)\\
+\inductor{W3}	& \SI{0.1}{mH} / \SI{0.23}{\Ohm}	& Air core (e.g.~Mundorf BL71, baked varnish)\\
+\inductor{W4}	& \SI{15}{mH}  / \SI{1.12}{\Ohm}	& Iron core (e.g, Mundorf BH71, Ferrite, baked varnish)\\
 \capacitor{W1}	& \SI{118}{\micro F}			& Parallel combination of \SI{100}{\micro F} bipolar electrolytic  (e.g.~Mundorf ECAP50) and \SI{18}{\micro F} MKP (e.g.~Mundorf MCAP250)\\
 \capacitor{W2}	& \SI{33}{\micro F}			& Bipolar electrolytic (e.g.~Mundorf ECAP70)\\
 \capacitor{W3}	& \SI{267}{\micro F}			& Parallel combination of \SI{220}{\micro F} and \SI{47}{\micro F} bipolar electrolytics (e.g.~Mundorf ECAP63 / ECAP50)\\
-\resistor{W1}	& \SI{6.8}{\ohm} / \SI{10}{W}		& MOX type (e.g.~Mundorf MR10)\\
-\resistor{W2}	& \SI{5.6}{\ohm} / \SI{10}{W}		& MOX type (e.g.~Mundorf MR10)\\
+\resistor{W1}	& \SI{6.8}{\Ohm} / \SI{10}{W}		& MOX type (e.g.~Mundorf MR10)\\
+\resistor{W2}	& \SI{5.6}{\Ohm} / \SI{10}{W}		& MOX type (e.g.~Mundorf MR10)\\
 
 \midrule
 
 % midrange parts
-\inductor{M1}	& \SI{1.2}{mH} / \SI{0.39}{\ohm}	& Air core (e.g.~Mundorf BL125, baked varnish)\\
-\inductor{M2}	& \SI{0.33}{mH} / \SI{0.15}{\ohm}	& Air core (e.g.~Mundorf BL100, baked varnish)\\
-\inductor{M3}	& \SI{6.8}{mH} / \SI{0.46}{\ohm}	& Iron core (e.g.~Mundorf BH100, Ferrite, baked varnish)\\
-\inductor{M4}	& \SI{0.12}{mH} / \SI{0.15}{\ohm}	& Air core (e.g.~Mundorf BL100, baked varnish)\\
-\inductor{M5}	& \SI{2.7}{mH} / \SI{1.01}{\ohm}	& Iron core (e.g.~Mundorf BP71, Ferrite, baked)\\
+\inductor{M1}	& \SI{1.2}{mH} / \SI{0.44}{\Ohm}	& Air core (e.g.~Mundorf BL125, baked varnish)\\
+\inductor{M2}	& \SI{0.33}{mH} / \SI{0.15}{\Ohm}	& Air core (e.g.~Mundorf BL100, baked varnish)\\
+\inductor{M3}	& \SI{6.8}{mH} / \SI{0.46}{\Ohm}	& Iron core (e.g.~Mundorf BH100, Ferrite, baked varnish)\\
+\inductor{M4}	& \SI{0.12}{mH} / \SI{0.15}{\Ohm}	& Air core (e.g.~Mundorf BL100, baked varnish)\\
+\inductor{M5}	& \SI{2.7}{mH} / \SI{1.01}{\Ohm}	& Iron core (e.g.~Mundorf BP71, Ferrite, baked)\\
 \capacitor{M1}	& \SI{33}{\micro F}			& MKP (e.g.~Mundorf MCAP250)\\
 \capacitor{M2}	& \SI{267}{\micro F}			& Parallel combination of \SI{220}{\micro F} bipolar electrolytic (e.g., Mundorf ECAP63) and \SI{47}{\micro F} MKP (e.g.~Mundorf MCAP250)\\
 % \capacitor{M3}	& \SI{6.8}{\micro F}			& MKP (e.g.~Mundorf MCAP250)\\
 \capacitor{M3}	& \SI{5.6}{\micro F}			& MKP (e.g.~Mundorf MCAP250)\\
 \capacitor{M4}	& \SI{4.7}{\micro F}			& MKP (e.g.~Mundorf MCAP250)\\
 \capacitor{M5}	& \SI{68}{\micro F}			& Bipolar electrolytic (e.g.~Mundorf ECAP50)\\
-\resistor{M1}	& \SI{2.7}{\ohm} / \SI{10}{W}		& MOX or wire wound (non-inducitve) (e.g.~Mundorf MRES20)\\
-\resistor{M2}	& \SI{5.6}{\ohm} / \SI{10}{W}		& MOX or wire wound (non-inducitve) (e.g.~Mundorf MRES20)\\
-\resistor{M3}	& \SI{8.2}{\ohm} / \SI{10}{W}		& MOX or wire wound (e.g.~Mundorf MR10)\\
-\resistor{M4}	& \SI{8.2}{\ohm} / \SI{10}{W}		& MOX or wire wound (e.g.~Mundorf MR10)\\
+\resistor{M1}	& \SI{2.7}{\Ohm} / \SI{10}{W}		& MOX or wire wound (non-inducitve) (e.g.~Mundorf MRES20)\\
+\resistor{M2}	& \SI{5.6}{\Ohm} / \SI{10}{W}		& MOX or wire wound (non-inducitve) (e.g.~Mundorf MRES20)\\
+\resistor{M3}	& \SI{8.2}{\Ohm} / \SI{10}{W}		& MOX or wire wound (e.g.~Mundorf MR10)\\
+\resistor{M4}	& \SI{8.2}{\Ohm} / \SI{10}{W}		& MOX or wire wound (e.g.~Mundorf MR10)\\
 
 \midrule
 
 % tweeter parts
-\inductor{T1}	& \SI{0.18}{mH} / \SI{0.38}{\ohm}	& Air core (e.g.~Mundorf BL71, baked varnish)\\
-\inductor{T2}	& \SI{0.47}{mH} / \SI{0.64}{\ohm}	& Air core (e.g.~Mundorf BL71, baked varnish)\\
+\inductor{T1}	& \SI{0.18}{mH} / \SI{0.38}{\Ohm}	& Air core (e.g.~Mundorf BL71, baked varnish)\\
+\inductor{T2}	& \SI{0.47}{mH} / \SI{0.64}{\Ohm}	& Air core (e.g.~Mundorf BL71, baked varnish)\\
 \capacitor{T1}	& \SI{4.7}{\micro F}			& MKP (e.g.~MCAP250)\\
 \capacitor{T2}	& \SI{15}{\micro F}			& MKP (e.g.~MCAP250)\\
 \capacitor{T3}	& \SI{100}{\micro F}			& Parallel combination of \SI{82}{\micro F} bipolar electrolytic and \SI{18}{\micro F} MKP (e.g.~Mundorf ECAP50-82 and MCAP250-18)\\
 \capacitor{T4}	& \SI{100}{\micro F}			& Bipolar electrolytic (e.g.~Mundorf ECAP50)\\
-\resistor{T1}	& \SI{3.9}{\ohm} / \SI{10}{W}		& MOX or wire wound (non-inducitve) (e.g.~Mundorf MRES20)\\
-\resistor{T2}	& \SI{1.0}{\ohm} / \SI{10}{W}		& MOX or wire wound (non-inducitve) (e.g.~Mundorf MRES20)\\
-\resistor{T3}	& \SI{4.7}{\ohm} / \SI{10}{W}		& MOX type (e.g.~Mundorf MR10)\\
+\resistor{T1}	& \SI{3.9}{\Ohm} / \SI{10}{W}		& MOX or wire wound (non-inducitve) (e.g.~Mundorf MRES20)\\
+\resistor{T2}	& \SI{1.0}{\Ohm} / \SI{10}{W}		& MOX or wire wound (non-inducitve) (e.g.~Mundorf MRES20)\\
+\resistor{T3}	& \SI{4.7}{\Ohm} / \SI{10}{W}		& MOX type (e.g.~Mundorf MR10)\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -285,7 +293,7 @@ The bass reflex port (type Monacor BR-100HP / Jantzen HP 900028) is cut to lengt
 To mount the tweeter waveguide to the Scan Speak R2904 driver, the original faceplate needs to be removed from the tweeter by removing the three Torx screws. Note that the three empty screw holes that were used to fix the original faceplate to the tweeter would cause air leaks from the rear chamber, resulting in an undesired bass reflex tuning of the tweeter.\cite{scan_waveguide_bassreflex} The screw holes therefore need to be sealed with silicone or similar in order to maintain the desired tuning of the tweeter resonance.\cite{scan_waveguide_seal} The waveguide is fixed to the tweeter either using a clamp bolted to the rear of the waveguide, or using a thin layer of silicone or similar glue.
 
 
-\subsection{Cross Over Filters}
+\subsection{Crossover Filters}
 \figr{osmc_xover_construction} shows the construction of the x-over filters according to \figr{osmc_EL_xover_schem}. The parts are fixed to a base and connected to each other using flying leads. Given the size and complexity of the x-over circuits, it make sense to build the filters for the tweeter, midrange and woofer as separate modules, and to mount these modules in a separate box instead of in the OSMC cabinet. In order to minimize magnetic comupling and crosstalk between the different inductors, the inductors should be arranged perpendicular to each other and separated from each other as much as possible.\cite{osmc_p833}
 
 Note that the manufacturers and type numbers of the parts suggested in \tabl{OSMC_EL_xover_parts} correspond to the parts used in the OSMC prototype. These are high quality parts and work well, but they may be substituted with other parts with the same specifications. It must be noted, however, that expensive boutique parts do not always yield better sound. For instance, the ``high-end'' MKP capacitors shown in \figr{osmc_xover_construction} resulted in bloated and euphonic sound, and were later replaced by other MKP capacitors.\cite{MKPtypes}
@@ -295,7 +303,7 @@ Note that the manufacturers and type numbers of the parts suggested in \tabl{OSM
 	\includegraphics[height=0.26\textheight]{xover_modules.jpg}
 	\hfill
 	\includegraphics[height=0.26\textheight]{xover_box.jpg}
-	\caption{Construction of the cross over filter. Left: filter modules for the woofer, midrange, and tweeter. Right: complete crossover for one channel.}
+	\caption{Construction of the crossover filter. Left: filter modules for the woofer, midrange, and tweeter. Right: complete crossover for one channel.}
 	\figlabel{osmc_xover_construction}
 \end{figure}
 
