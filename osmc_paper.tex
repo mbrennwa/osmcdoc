@@ -290,8 +290,15 @@ Any standing waves (modes) that develop in the enclosure need to be attenuated b
 The bass reflex port (type Monacor BR-100HP / Jantzen HP 900028) is cut to length and are then press-fit mounted in the rear wall. To ensure a tight seal between the rear baffle and the flange of the port, the flange may be wrapped with a few layers of tape. The recommended port length is approximately \SIrange{8}{9}{cm} long\cite{osmc_p918}, but slightly different port lengths (\SI{7}{cm} to \SI{11}{cm}) can be used to tweak the bass response. A longer port will cause a lower bass tuning with a softer roll off, whereas a shorter port will cause a higher bass tuning with a slight bass peak.
 
 \subsection{Fitting the Tweeter Waveguide}
-To mount the tweeter waveguide to the Scan Speak R2904 driver, the original faceplate needs to be removed from the tweeter by removing the three Torx screws. Note that the three empty screw holes that were used to fix the original faceplate to the tweeter would cause air leaks from the rear chamber, resulting in an undesired bass reflex tuning of the tweeter.\cite{scan_waveguide_bassreflex} The screw holes therefore need to be sealed with silicone or similar in order to maintain the desired tuning of the tweeter resonance.\cite{scan_waveguide_seal} The waveguide is fixed to the tweeter either using a clamp bolted to the rear of the waveguide, or using a thin layer of silicone or similar glue.
+To mount the tweeter waveguide to the Scan Speak R2904 driver, the original faceplate needs to be removed from the tweeter by removing the three Torx screws. Note that the three empty screw holes that were used to fix the original faceplate to the tweeter would cause air leaks from the rear chamber, resulting in an undesired bass reflex tuning of the tweeter.\cite{scan_waveguide_bassreflex} The screw holes therefore need to be sealed with silicone or similar in order to maintain the desired tuning of the tweeter resonance.\cite{scan_waveguide_seal} The waveguide is fixed to the tweeter either using a clamp\cite{osmc_p1070} bolted to the rear of the waveguide (\figr{waveguide_sandwich}), or using a thin layer of silicone or similar glue.
 
+
+\begin{figure}[tbp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{waveguide_sandwich.jpg}
+	\caption{Photo of the R2904 tweeter mounted on the waveguide using a clamp.}
+	\figlabel{waveguide_sandwich}
+\end{figure}
 
 \subsection{Crossover Filters}
 \figr{osmc_xover_construction} shows the construction of the x-over filters according to \figr{osmc_EL_xover_schem}. The parts are fixed to a base and connected to each other using flying leads. Given the size and complexity of the x-over circuits, it make sense to build the filters for the tweeter, midrange and woofer as separate modules, and to mount these modules in a separate box instead of in the OSMC cabinet. In order to minimize magnetic comupling and crosstalk between the different inductors, the inductors should be arranged perpendicular to each other and separated from each other as much as possible.\cite{osmc_p833}
