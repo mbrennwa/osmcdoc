@@ -26,7 +26,7 @@ not be larger than 60–80 L. The enclosure must be a simple rectangular box whi
 - The OSMC should be a three way loudspeaker.
 - Keeping part costs low is not of paramount priority. If the right parts cost a lot of money and there are no cheaper equivalents, it’s okay to use those
 parts in the design.
-- the loudpseaker efficiency was targeted to 92 dB−SPL at 1 m and 2.83 V input voltage, with a bass extension to 45 Hz (−3 dB). Note that, given the constraints of the box size, this can only be achieved if mechnical losses within the loudspeaker system were virtually zero, which is nearly impossible in real-world loudspeakers. However, these targets still provided useful guidelines for the design process.
+- The loudpseaker efficiency was targeted to 92 dB−SPL at 1 m and 2.83 V input voltage, with a bass extension to 45 Hz (−3 dB). Note that, given the constraints of the box size, this can only be achieved if mechnical losses within the loudspeaker system were virtually zero, which is nearly impossible in real-world loudspeakers. However, these targets still provided useful guidelines for the design process.
 - The impedance curve must not exhibit any sharp peaks or dips, and the OSMC should qualify as an "8 Ω speaker".
 
 ## Resources
