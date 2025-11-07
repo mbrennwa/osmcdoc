@@ -8,6 +8,8 @@
 
 \usepackage[pdftex]{graphicx}
 \usepackage{epstopdf}
+\epstopdfsetup{outdir=figures/,update}
+\epstopdfsetup{suffix=}
 % \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 \usepackage[utf8]{inputenc}
 \usepackage{booktabs}
@@ -135,7 +137,7 @@ The tweeter also needs to keep up with the SPL and impedance requirements. Class
 \begin{figure}[tbp]
 	\centering
 	% \vspace{-10ex}
-	\includegraphics[width=0.7\textwidth]{impedance_curves_drivers.eps}
+	\includegraphics[width=0.7\textwidth]{impedance_curves_drivers}
 	\caption{Impedance curves of the drivers mounted in the OSMC box (magnitude and phase).}
 	\figlabel{impedance_curves_drivers}
 \end{figure}
@@ -143,7 +145,7 @@ The tweeter also needs to keep up with the SPL and impedance requirements. Class
 \begin{figure}[tbp]
 	\centering
 	\vspace{-10ex}
-	\includegraphics[width=0.7\textwidth]{SPL_curves_raw.eps}
+	\includegraphics[width=0.7\textwidth]{SPL_curves_raw}
 	\caption{SPL response curves of the woofer (Faital 12PR320, top), midrange driver (Volt VM752, center) and tweeter (Scan Speak R2904/7000 with WG148 wave\-guide) mounted in the Monkey Coffin prototype box, measured at \SI{2.83}{Vrms} and \SI{1}{m} distance from the drivers, on axis and at $\pm$15\degree, $\pm$30\degree, $\pm$45\degree, $\pm$60\degree, $\pm$75\degree\ and $\pm$90\degree\ horizontal angles (the red curves were measured on the side where the tweeter and midrange drivers are closer to the baffle edge, the blue curves are from the other side; the woofer data is symmetric). Above \SI{300}{Hz}, the curves show the anechoic response as obtained from gated impulse-response measurements. The anechoic curves were extrapolated to lower frequencies by splicing them with modelled low-frequency curves (see text).}
 	\figlabel{SPL_curves_raw}
 \end{figure}
@@ -166,7 +168,7 @@ The cabinet volume and the dimensions of the bass-reflex port were determined us
 
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=0.6\textwidth]{osmc_bass_tuning.eps}
+	\includegraphics[width=0.6\textwidth]{osmc_bass_tuning}
 	\caption{Top: bass SPL response for \SI{2.83}{Vrms} drive voltage, at \SI{1}{m} (solid line: $2\pi$ response as measured using the microphone-in-box method\cite{Small_inbox}, dashed line: estimated $4\pi$ response taking into account the modelled baffle-step loss). Bottom: group delay determined from $2\pi$ SPL response. See also text).}
 	\figlabel{osmc_bass_tuning}
 \end{figure}
@@ -253,22 +255,22 @@ Part & Value & Description\\
 \section{Construction}
 
 \subsection{Estimated Costs}
-The costs for a complete speaker are dominated by the drivers and the x-over parts. The costs for the cabinet depend a lot on the materials used. The estimated cost per speaker is as follows (not including taxes and shipping):
+The costs for a complete speaker are dominated by the drivers and the x-over parts. The costs for the cabinet depend a lot on the materials used. The estimated cost per speaker is as follows (as of 2025,\cite{osmc_p1955} not including taxes and shipping):
 
 \begin{tabular}{lcp{0.3\textwidth}} 
 \toprule
 Part & Cost (\euro) & Remarks\\ 
 \midrule 
-Woofer (FaitalPRO 12PR320)	&	120	\\
-Midrange (Volt VM752)		&	500 \\
-Tweeter (Scan Speak R2904/7000)	&	250	\\
-Tweeter waveguide (augerpro)	&	85	& diyAudio group buy\cite{augerpro_groupbuy} \\
-X-over parts			&	300	& Parts as in \tabl{OSMC_EL_xover_parts} \\
+Woofer (FaitalPRO 12PR320)	&	175	\\
+Midrange (Volt VM752)		&	540 \\
+Tweeter (Scan Speak R2904/7000)	&	285	\\
+Tweeter waveguide (augerpro)	&	95	& diyAudio group buy\cite{augerpro_groupbuy} \\
+X-over parts			&	500	& Parts as in \tabl{OSMC_EL_xover_parts} \\
 Cabinet				&	approx.~100	& Basic MDF or plywood cabinet \\
 Damping materials		&	approx.~50	& Basotect, sheeps wool \\
 Bits and pieces			&	approx.~50 	& Bass reflex port, screws, wires, connectors, etc. \\
 \midrule 
-Total				&	approx.~1500 \\
+Total				&	approx.~1800 \\
 \bottomrule
 \end{tabular}
 
@@ -322,7 +324,7 @@ Note that the manufacturers and type numbers of the parts suggested in \tabl{OSM
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=0.7\textwidth]{osmc_impedance_curve.eps}
+	\includegraphics[width=0.7\textwidth]{osmc_impedance_curve}
 	\caption{Measured electrical impedance (magnitude in blue, phase in red).}
 	\figlabel{osmc_impedance_curve}
 \end{figure}
@@ -331,7 +333,7 @@ Note that the manufacturers and type numbers of the parts suggested in \tabl{OSM
 
 \begin{figure}[tpb]
 	\centering
-	\includegraphics[width=0.7\textwidth]{osmc_filter_transfer.eps}
+	\includegraphics[width=0.7\textwidth]{osmc_filter_transfer}
 	% note: this shows the 2019-03-03 version of the filter, where the kink in the tweeter transfer curve is a bit stronger than it should be.
 	\caption{Measured transfer curves of the crossover filters for the woofer (blue), midrange (black), and tweeter (red).}
 	\figlabel{osmc_filter_transfer}
@@ -350,36 +352,36 @@ The in-room SPL curve of the OSMC in a generic room was estimated from the sound
 
 \begin{figure}[p]
 	\centering
-	\includegraphics[width=0.7\textwidth]{osmc_step_response.eps}
+	\includegraphics[width=0.7\textwidth]{osmc_step_response}
 	\caption{Step response at \SI{1}{m} (anechoic part).}
 	\figlabel{osmc_step_response}
 \end{figure}
 
 \begin{figure}[p]
 	\centering
-	\includegraphics[width=0.7\textwidth]{osmc_SPL_response.eps}
+	\includegraphics[width=0.7\textwidth]{osmc_SPL_response}
 	\caption{SPL response at \SI{1}{m} (on axis, free field / $4\pi$, see text).}
 	\figlabel{osmc_SPL_response}
 \end{figure}
 
 \begin{figure}[p]
 	\centering
-	\includegraphics[width=0.8\textwidth]{osmc_polar_horizontal.eps}\\
-	\includegraphics[width=0.8\textwidth]{osmc_polar_vertical.eps}
+	\includegraphics[width=0.8\textwidth]{osmc_polar_horizontal}\\
+	\includegraphics[width=0.8\textwidth]{osmc_polar_vertical}
 	\caption{SPL dispersion (top: horizontal dispersion, bottom: vertical dispersion).}
 	\figlabel{osmc_polar}
 \end{figure}
 
 \begin{figure}[p]
 	\centering
-	\includegraphics[width=0.7\textwidth]{osmc_powerresponse.eps}
+	\includegraphics[width=0.7\textwidth]{osmc_powerresponse}
 	\caption{Power response (see text).}
 	\figlabel{osmc_powerresponse}
 \end{figure}
 
 \begin{figure}[p]
 	\centering
-	\includegraphics[width=0.7\textwidth]{osmc_CSD_diagram.eps}
+	\includegraphics[width=0.7\textwidth]{osmc_CSD_diagram}
 	\caption{Cumulative spectral decay diagram.}
 	\figlabel{osmc_CSD_diagram}
 \end{figure}
